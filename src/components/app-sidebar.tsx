@@ -52,7 +52,7 @@ const data = {
   navMain: [
     {
       title: "Overview",
-      url: "#",
+      url: "/dashboard/overview",
       icon: ChartPie,
       isActive: true,
     },
@@ -69,16 +69,20 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Environment",
+          url: "/dashboard/global/environment",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Distribution",
+          url: "/dashboard/global/distribution",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Harvest",
+          url: "/dashboard/global/harvest",
+        },
+        {
+          title: "Statistics",
+          url: "/dashboard/global/statistics",
         },
       ],
     },
@@ -88,16 +92,20 @@ const data = {
       icon: Sprout,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Environment",
+          url: "/dashboard/plantations/environment",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Distribution",
+          url: "/dashboard/plantations/distribution",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "Harvest",
+          url: "/dashboard/plantations/harvest",
+        },
+        {
+          title: "Statistics",
+          url: "/dashboard/plantations/statistics",
         },
       ],
     },

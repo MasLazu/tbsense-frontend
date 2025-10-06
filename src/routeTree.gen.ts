@@ -12,6 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
+import { Route as DashboardGlobalStatisticsIndexRouteImport } from './routes/dashboard/global/statistics/index'
+import { Route as DashboardGlobalHarvestIndexRouteImport } from './routes/dashboard/global/harvest/index'
+import { Route as DashboardGlobalEnvironmentIndexRouteImport } from './routes/dashboard/global/environment/index'
+import { Route as DashboardGlobalDistributionIndexRouteImport } from './routes/dashboard/global/distribution/index'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -28,29 +32,87 @@ const DashboardOverviewIndexRoute = DashboardOverviewIndexRouteImport.update({
   path: '/overview/',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardGlobalStatisticsIndexRoute =
+  DashboardGlobalStatisticsIndexRouteImport.update({
+    id: '/global/statistics/',
+    path: '/global/statistics/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardGlobalHarvestIndexRoute =
+  DashboardGlobalHarvestIndexRouteImport.update({
+    id: '/global/harvest/',
+    path: '/global/harvest/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardGlobalEnvironmentIndexRoute =
+  DashboardGlobalEnvironmentIndexRouteImport.update({
+    id: '/global/environment/',
+    path: '/global/environment/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardGlobalDistributionIndexRoute =
+  DashboardGlobalDistributionIndexRouteImport.update({
+    id: '/global/distribution/',
+    path: '/global/distribution/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
+  '/dashboard/global/distribution': typeof DashboardGlobalDistributionIndexRoute
+  '/dashboard/global/environment': typeof DashboardGlobalEnvironmentIndexRoute
+  '/dashboard/global/harvest': typeof DashboardGlobalHarvestIndexRoute
+  '/dashboard/global/statistics': typeof DashboardGlobalStatisticsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
+  '/dashboard/global/distribution': typeof DashboardGlobalDistributionIndexRoute
+  '/dashboard/global/environment': typeof DashboardGlobalEnvironmentIndexRoute
+  '/dashboard/global/harvest': typeof DashboardGlobalHarvestIndexRoute
+  '/dashboard/global/statistics': typeof DashboardGlobalStatisticsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
+  '/dashboard/global/distribution/': typeof DashboardGlobalDistributionIndexRoute
+  '/dashboard/global/environment/': typeof DashboardGlobalEnvironmentIndexRoute
+  '/dashboard/global/harvest/': typeof DashboardGlobalHarvestIndexRoute
+  '/dashboard/global/statistics/': typeof DashboardGlobalStatisticsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/dashboard/overview'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/dashboard/overview'
+    | '/dashboard/global/distribution'
+    | '/dashboard/global/environment'
+    | '/dashboard/global/harvest'
+    | '/dashboard/global/statistics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/dashboard/overview'
-  id: '__root__' | '/' | '/dashboard' | '/dashboard/overview/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/dashboard/overview'
+    | '/dashboard/global/distribution'
+    | '/dashboard/global/environment'
+    | '/dashboard/global/harvest'
+    | '/dashboard/global/statistics'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/dashboard/overview/'
+    | '/dashboard/global/distribution/'
+    | '/dashboard/global/environment/'
+    | '/dashboard/global/harvest/'
+    | '/dashboard/global/statistics/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -81,15 +143,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardOverviewIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/global/statistics/': {
+      id: '/dashboard/global/statistics/'
+      path: '/global/statistics'
+      fullPath: '/dashboard/global/statistics'
+      preLoaderRoute: typeof DashboardGlobalStatisticsIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/global/harvest/': {
+      id: '/dashboard/global/harvest/'
+      path: '/global/harvest'
+      fullPath: '/dashboard/global/harvest'
+      preLoaderRoute: typeof DashboardGlobalHarvestIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/global/environment/': {
+      id: '/dashboard/global/environment/'
+      path: '/global/environment'
+      fullPath: '/dashboard/global/environment'
+      preLoaderRoute: typeof DashboardGlobalEnvironmentIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/global/distribution/': {
+      id: '/dashboard/global/distribution/'
+      path: '/global/distribution'
+      fullPath: '/dashboard/global/distribution'
+      preLoaderRoute: typeof DashboardGlobalDistributionIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
 interface DashboardRouteChildren {
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
+  DashboardGlobalDistributionIndexRoute: typeof DashboardGlobalDistributionIndexRoute
+  DashboardGlobalEnvironmentIndexRoute: typeof DashboardGlobalEnvironmentIndexRoute
+  DashboardGlobalHarvestIndexRoute: typeof DashboardGlobalHarvestIndexRoute
+  DashboardGlobalStatisticsIndexRoute: typeof DashboardGlobalStatisticsIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,
+  DashboardGlobalDistributionIndexRoute: DashboardGlobalDistributionIndexRoute,
+  DashboardGlobalEnvironmentIndexRoute: DashboardGlobalEnvironmentIndexRoute,
+  DashboardGlobalHarvestIndexRoute: DashboardGlobalHarvestIndexRoute,
+  DashboardGlobalStatisticsIndexRoute: DashboardGlobalStatisticsIndexRoute,
 }
 
 const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
