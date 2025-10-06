@@ -58,7 +58,7 @@ const activity = [
   },
 ];
 
-export const Route = createFileRoute("/dashboard/overview/dashboard/")({
+export const Route = createFileRoute("/dashboard/overview/")({
   component: RouteComponent,
 });
 
