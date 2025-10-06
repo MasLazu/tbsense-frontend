@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   AudioWaveform,
-  BookOpen,
   Bot,
   ChartPie,
   Command,
@@ -12,14 +11,11 @@ import {
   Globe,
   Map,
   PieChart,
-  Settings2,
   Sprout,
-  SquareTerminal,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 // import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
 import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
@@ -137,9 +133,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} groupLabel="Settings" />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
+      <SidebarFooter>{/* NavUser moved to dashboard header */}</SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

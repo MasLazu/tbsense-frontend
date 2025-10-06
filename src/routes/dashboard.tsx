@@ -14,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { NavUser } from "@/components/nav-user";
 import { Separator } from "@/components/ui/separator";
 
 export const Route = createFileRoute("/dashboard")({
@@ -44,33 +45,45 @@ function DashboardLayout() {
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <Breadcrumb>
-              <BreadcrumbList>
-                {breadcrumbs.map((breadcrumb, index) => (
-                  <BreadcrumbItem
-                    key={breadcrumb.title}
-                    className={breadcrumb.isLast ? "font-medium" : ""}
-                  >
-                    {breadcrumb.isLast ? (
-                      <BreadcrumbPage>{breadcrumb.title}</BreadcrumbPage>
-                    ) : (
-                      <BreadcrumbLink href={breadcrumb.path}>
-                        {breadcrumb.title}
-                      </BreadcrumbLink>
-                    )}
-                    {index < breadcrumbs.length - 1 && (
-                      <BreadcrumbSeparator className="hidden md:block" />
-                    )}
-                  </BreadcrumbItem>
-                ))}
-              </BreadcrumbList>
-            </Breadcrumb>
+          <div className="flex items-center gap-2 px-4 w-full">
+            <div className="flex items-center">
+              <SidebarTrigger className="-ml-1" />
+              <Separator
+                orientation="vertical"
+                className="mr-2 data-[orientation=vertical]:h-4"
+              />
+              <Breadcrumb>
+                <BreadcrumbList>
+                  {breadcrumbs.map((breadcrumb, index) => (
+                    <BreadcrumbItem
+                      key={breadcrumb.title}
+                      className={breadcrumb.isLast ? "font-medium" : ""}
+                    >
+                      {breadcrumb.isLast ? (
+                        <BreadcrumbPage>{breadcrumb.title}</BreadcrumbPage>
+                      ) : (
+                        <BreadcrumbLink href={breadcrumb.path}>
+                          {breadcrumb.title}
+                        </BreadcrumbLink>
+                      )}
+                      {index < breadcrumbs.length - 1 && (
+                        <BreadcrumbSeparator className="hidden md:block" />
+                      )}
+                    </BreadcrumbItem>
+                  ))}
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+
+            <div className="ml-auto">
+              <NavUser
+                user={{
+                  name: "shadcn",
+                  email: "m@example.com",
+                  avatar: "/avatars/shadcn.jpg",
+                }}
+              />
+            </div>
           </div>
         </header>
         <div className="flex-1 overflow-y-auto p-4">
