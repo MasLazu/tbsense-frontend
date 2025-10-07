@@ -2,13 +2,11 @@
 
 import * as React from "react";
 import {
-  AudioWaveform,
   Bot,
   ChartLine,
   ChartPie,
-  Command,
   Frame,
-  GalleryVerticalEnd,
+  Leaf,
   Map,
   MonitorCog,
   PieChart,
@@ -34,19 +32,9 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
+      name: "TB Sense",
+      logo: Leaf,
       plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
     },
   ],
   navMain: [
@@ -139,8 +127,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} groupLabel="Dashboard" />
-        <NavMain items={data.navMain} groupLabel="Management" />
-        <NavMain items={data.navMain} groupLabel="Settings" />
+        {/* <NavMain items={data.navMain} groupLabel="Management" />
+        <NavMain items={data.navMain} groupLabel="Settings" /> */}
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       {/* <SidebarFooter>NavUser moved to dashboard header</SidebarFooter> */}

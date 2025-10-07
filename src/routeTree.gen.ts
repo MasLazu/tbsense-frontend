@@ -13,10 +13,13 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboard/plantations/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
+import { Route as DashboardPlantationsPlantationIdRouteImport } from './routes/dashboard/plantations/$plantationId'
 import { Route as DashboardMonitoringStatisticsIndexRouteImport } from './routes/dashboard/monitoring/statistics/index'
 import { Route as DashboardMonitoringHarvestIndexRouteImport } from './routes/dashboard/monitoring/harvest/index'
 import { Route as DashboardMonitoringEnvironmentIndexRouteImport } from './routes/dashboard/monitoring/environment/index'
 import { Route as DashboardMonitoringDistributionIndexRouteImport } from './routes/dashboard/monitoring/distribution/index'
+import { Route as DashboardPlantationsPlantationIdTreesRouteImport } from './routes/dashboard/plantations/$plantationId.trees'
+import { Route as DashboardPlantationsPlantationIdTreesTreeIdRouteImport } from './routes/dashboard/plantations/$plantationId.trees.$treeId'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -39,6 +42,12 @@ const DashboardOverviewIndexRoute = DashboardOverviewIndexRouteImport.update({
   path: '/overview/',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardPlantationsPlantationIdRoute =
+  DashboardPlantationsPlantationIdRouteImport.update({
+    id: '/plantations/$plantationId',
+    path: '/plantations/$plantationId',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 const DashboardMonitoringStatisticsIndexRoute =
   DashboardMonitoringStatisticsIndexRouteImport.update({
     id: '/monitoring/statistics/',
@@ -63,69 +72,99 @@ const DashboardMonitoringDistributionIndexRoute =
     path: '/monitoring/distribution/',
     getParentRoute: () => DashboardRoute,
   } as any)
+const DashboardPlantationsPlantationIdTreesRoute =
+  DashboardPlantationsPlantationIdTreesRouteImport.update({
+    id: '/trees',
+    path: '/trees',
+    getParentRoute: () => DashboardPlantationsPlantationIdRoute,
+  } as any)
+const DashboardPlantationsPlantationIdTreesTreeIdRoute =
+  DashboardPlantationsPlantationIdTreesTreeIdRouteImport.update({
+    id: '/$treeId',
+    path: '/$treeId',
+    getParentRoute: () => DashboardPlantationsPlantationIdTreesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
+  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
   '/dashboard/monitoring/statistics': typeof DashboardMonitoringStatisticsIndexRoute
+  '/dashboard/plantations/$plantationId/trees/$treeId': typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
+  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
   '/dashboard/monitoring/statistics': typeof DashboardMonitoringStatisticsIndexRoute
+  '/dashboard/plantations/$plantationId/trees/$treeId': typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations/': typeof DashboardPlantationsIndexRoute
+  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution/': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment/': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest/': typeof DashboardMonitoringHarvestIndexRoute
   '/dashboard/monitoring/statistics/': typeof DashboardMonitoringStatisticsIndexRoute
+  '/dashboard/plantations/$plantationId/trees/$treeId': typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
+    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution'
     | '/dashboard/monitoring/environment'
     | '/dashboard/monitoring/harvest'
     | '/dashboard/monitoring/statistics'
+    | '/dashboard/plantations/$plantationId/trees/$treeId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dashboard'
+    | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
+    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution'
     | '/dashboard/monitoring/environment'
     | '/dashboard/monitoring/harvest'
     | '/dashboard/monitoring/statistics'
+    | '/dashboard/plantations/$plantationId/trees/$treeId'
   id:
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview/'
     | '/dashboard/plantations/'
+    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution/'
     | '/dashboard/monitoring/environment/'
     | '/dashboard/monitoring/harvest/'
     | '/dashboard/monitoring/statistics/'
+    | '/dashboard/plantations/$plantationId/trees/$treeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -163,6 +202,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardOverviewIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/plantations/$plantationId': {
+      id: '/dashboard/plantations/$plantationId'
+      path: '/plantations/$plantationId'
+      fullPath: '/dashboard/plantations/$plantationId'
+      preLoaderRoute: typeof DashboardPlantationsPlantationIdRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/monitoring/statistics/': {
       id: '/dashboard/monitoring/statistics/'
       path: '/monitoring/statistics'
@@ -191,10 +237,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardMonitoringDistributionIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/plantations/$plantationId/trees': {
+      id: '/dashboard/plantations/$plantationId/trees'
+      path: '/trees'
+      fullPath: '/dashboard/plantations/$plantationId/trees'
+      preLoaderRoute: typeof DashboardPlantationsPlantationIdTreesRouteImport
+      parentRoute: typeof DashboardPlantationsPlantationIdRoute
+    }
+    '/dashboard/plantations/$plantationId/trees/$treeId': {
+      id: '/dashboard/plantations/$plantationId/trees/$treeId'
+      path: '/$treeId'
+      fullPath: '/dashboard/plantations/$plantationId/trees/$treeId'
+      preLoaderRoute: typeof DashboardPlantationsPlantationIdTreesTreeIdRouteImport
+      parentRoute: typeof DashboardPlantationsPlantationIdTreesRoute
+    }
   }
 }
 
+interface DashboardPlantationsPlantationIdTreesRouteChildren {
+  DashboardPlantationsPlantationIdTreesTreeIdRoute: typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
+}
+
+const DashboardPlantationsPlantationIdTreesRouteChildren: DashboardPlantationsPlantationIdTreesRouteChildren =
+  {
+    DashboardPlantationsPlantationIdTreesTreeIdRoute:
+      DashboardPlantationsPlantationIdTreesTreeIdRoute,
+  }
+
+const DashboardPlantationsPlantationIdTreesRouteWithChildren =
+  DashboardPlantationsPlantationIdTreesRoute._addFileChildren(
+    DashboardPlantationsPlantationIdTreesRouteChildren,
+  )
+
+interface DashboardPlantationsPlantationIdRouteChildren {
+  DashboardPlantationsPlantationIdTreesRoute: typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
+}
+
+const DashboardPlantationsPlantationIdRouteChildren: DashboardPlantationsPlantationIdRouteChildren =
+  {
+    DashboardPlantationsPlantationIdTreesRoute:
+      DashboardPlantationsPlantationIdTreesRouteWithChildren,
+  }
+
+const DashboardPlantationsPlantationIdRouteWithChildren =
+  DashboardPlantationsPlantationIdRoute._addFileChildren(
+    DashboardPlantationsPlantationIdRouteChildren,
+  )
+
 interface DashboardRouteChildren {
+  DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRouteWithChildren
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
   DashboardPlantationsIndexRoute: typeof DashboardPlantationsIndexRoute
   DashboardMonitoringDistributionIndexRoute: typeof DashboardMonitoringDistributionIndexRoute
@@ -204,6 +295,8 @@ interface DashboardRouteChildren {
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardPlantationsPlantationIdRoute:
+    DashboardPlantationsPlantationIdRouteWithChildren,
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,
   DashboardPlantationsIndexRoute: DashboardPlantationsIndexRoute,
   DashboardMonitoringDistributionIndexRoute:
