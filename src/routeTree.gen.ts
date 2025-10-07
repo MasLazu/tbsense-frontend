@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboard/plantations/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
 import { Route as DashboardPlantationsPlantationIdRouteImport } from './routes/dashboard/plantations/$plantationId'
+import { Route as DashboardAiManagementKnowledgeBaseRouteImport } from './routes/dashboard/ai-management/knowledge-base'
 import { Route as DashboardMonitoringStatisticsIndexRouteImport } from './routes/dashboard/monitoring/statistics/index'
 import { Route as DashboardMonitoringHarvestIndexRouteImport } from './routes/dashboard/monitoring/harvest/index'
 import { Route as DashboardMonitoringEnvironmentIndexRouteImport } from './routes/dashboard/monitoring/environment/index'
@@ -46,6 +47,12 @@ const DashboardPlantationsPlantationIdRoute =
   DashboardPlantationsPlantationIdRouteImport.update({
     id: '/plantations/$plantationId',
     path: '/plantations/$plantationId',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardAiManagementKnowledgeBaseRoute =
+  DashboardAiManagementKnowledgeBaseRouteImport.update({
+    id: '/ai-management/knowledge-base',
+    path: '/ai-management/knowledge-base',
     getParentRoute: () => DashboardRoute,
   } as any)
 const DashboardMonitoringStatisticsIndexRoute =
@@ -88,6 +95,7 @@ const DashboardPlantationsPlantationIdTreesTreeIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
@@ -101,6 +109,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
@@ -115,6 +124,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations/': typeof DashboardPlantationsIndexRoute
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/dashboard/ai-management/knowledge-base'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dashboard'
+    | '/dashboard/ai-management/knowledge-base'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
@@ -156,6 +168,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/dashboard/ai-management/knowledge-base'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview/'
     | '/dashboard/plantations/'
@@ -207,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/plantations/$plantationId'
       fullPath: '/dashboard/plantations/$plantationId'
       preLoaderRoute: typeof DashboardPlantationsPlantationIdRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/ai-management/knowledge-base': {
+      id: '/dashboard/ai-management/knowledge-base'
+      path: '/ai-management/knowledge-base'
+      fullPath: '/dashboard/ai-management/knowledge-base'
+      preLoaderRoute: typeof DashboardAiManagementKnowledgeBaseRouteImport
       parentRoute: typeof DashboardRoute
     }
     '/dashboard/monitoring/statistics/': {
@@ -285,6 +305,7 @@ const DashboardPlantationsPlantationIdRouteWithChildren =
   )
 
 interface DashboardRouteChildren {
+  DashboardAiManagementKnowledgeBaseRoute: typeof DashboardAiManagementKnowledgeBaseRoute
   DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRouteWithChildren
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
   DashboardPlantationsIndexRoute: typeof DashboardPlantationsIndexRoute
@@ -295,6 +316,8 @@ interface DashboardRouteChildren {
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAiManagementKnowledgeBaseRoute:
+    DashboardAiManagementKnowledgeBaseRoute,
   DashboardPlantationsPlantationIdRoute:
     DashboardPlantationsPlantationIdRouteWithChildren,
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,

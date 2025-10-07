@@ -13,12 +13,7 @@
   "paths": {
     "/api/v1/models/{id}/download": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsModelsDownloadModelEndpoint",
         "parameters": [
           {
@@ -48,12 +43,7 @@
     },
     "/api/v1/trees": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Trees",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Trees", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreesCreateTreeEndpoint",
         "requestBody": {
           "x-name": "CreateTreeRequest",
@@ -82,12 +72,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Trees",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Trees", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreesUpdateTreeEndpoint",
         "requestBody": {
           "x-name": "UpdateTreeRequest",
@@ -118,12 +103,7 @@
     },
     "/api/v1/trees/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Trees",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Trees", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreesDeleteTreeEndpoint",
         "parameters": [
           {
@@ -150,12 +130,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Trees",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Trees", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreesGetTreeByIdEndpoint",
         "parameters": [
           {
@@ -184,12 +159,7 @@
     },
     "/api/v1/trees/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Trees",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Trees", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreesGetTreesPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -220,12 +190,7 @@
     },
     "/api/v1/tree-metrics": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Metrics",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Metrics", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeMetricsCreateTreeMetricEndpoint",
         "requestBody": {
           "x-name": "CreateTreeMetricRequest",
@@ -254,12 +219,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Metrics",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Metrics", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeMetricsUpdateTreeMetricEndpoint",
         "requestBody": {
           "x-name": "UpdateTreeMetricRequest",
@@ -290,12 +250,7 @@
     },
     "/api/v1/tree-metrics/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Metrics",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Metrics", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeMetricsDeleteTreeMetricEndpoint",
         "parameters": [
           {
@@ -322,12 +277,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Metrics",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Metrics", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeMetricsGetTreeMetricByIdEndpoint",
         "parameters": [
           {
@@ -356,12 +306,7 @@
     },
     "/api/v1/tree-metrics/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Metrics",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Metrics", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeMetricsGetTreeMetricsPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -392,12 +337,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/histogram/air-temperature-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetAirTemperatureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -444,12 +384,7 @@
     },
     "/api/v1/dashboard/trees/area-chart/cumulative-metric-readings": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetCumulativeMetricReadingsAreaChartEndpoint",
         "parameters": [
           {
@@ -504,12 +439,7 @@
     },
     "/api/v1/dashboard/trees/area-chart/cumulative-moisture-deficit": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetCumulativeMoistureDeficitAreaChartEndpoint",
         "parameters": [
           {
@@ -573,12 +503,7 @@
     },
     "/api/v1/dashboard/trees/area-chart/cumulative-temperature-exposure": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetCumulativeTemperatureExposureAreaChartEndpoint",
         "parameters": [
           {
@@ -642,12 +567,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/bar-chart/daily-metrics-comparison": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetDailyMetricsComparisonChartEndpoint",
         "parameters": [
           {
@@ -685,12 +605,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/bar-chart/hourly-average-comparison": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetHourlyAverageComparisonChartEndpoint",
         "parameters": [
           {
@@ -728,12 +643,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/bar-chart/metric-range-comparison": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetMetricRangeComparisonChartEndpoint",
         "parameters": [
           {
@@ -771,12 +681,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/histogram/soil-moisture-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetSoilMoistureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -823,12 +728,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/histogram/soil-temperature-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetSoilTemperatureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -875,12 +775,7 @@
     },
     "/api/v1/dashboard/trees/area-chart/stacked-metrics-by-type": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetStackedMetricsByTypeAreaChartEndpoint",
         "parameters": [
           {
@@ -935,12 +830,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/basic": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeBasicInfoEndpoint",
         "parameters": [
           {
@@ -969,12 +859,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/current-metrics": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeCurrentMetricsEndpoint",
         "parameters": [
           {
@@ -1003,12 +888,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/environmental-averages": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeEnvironmentalAveragesEndpoint",
         "parameters": [
           {
@@ -1046,12 +926,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/timeseries/environmental": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeEnvironmentalTimeseriesEndpoint",
         "parameters": [
           {
@@ -1106,12 +981,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/chart/metric-ranges": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeMetricRangesChartEndpoint",
         "parameters": [
           {
@@ -1157,12 +1027,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/chart/reading-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetTreeReadingDistributionChartEndpoint",
         "parameters": [
           {
@@ -1200,12 +1065,7 @@
     },
     "/api/v1/dashboard/trees/{treeId}/bar-chart/weekly-metrics-comparison": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Tree Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Tree Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsTreeDashboardGetWeeklyMetricsComparisonChartEndpoint",
         "parameters": [
           {
@@ -1241,14 +1101,156 @@
         }
       }
     },
+    "/api/v1/system-prompts": {
+      "post": {
+        "tags": ["Api", "V1", "System Prompts", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsSystemPromptsCreateSystemPromptEndpoint",
+        "requestBody": {
+          "x-name": "CreateSystemPromptRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsCreateSystemPromptRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfSystemPromptDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Api", "V1", "System Prompts", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsSystemPromptsUpdateSystemPromptEndpoint",
+        "requestBody": {
+          "x-name": "UpdateSystemPromptRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsUpdateSystemPromptRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfSystemPromptDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/system-prompts/{id}": {
+      "delete": {
+        "tags": ["Api", "V1", "System Prompts", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsSystemPromptsDeleteSystemPromptEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Api", "V1", "System Prompts", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsSystemPromptsGetSystemPromptByIdEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfSystemPromptDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/system-prompts/paginated": {
+      "post": {
+        "tags": ["Api", "V1", "System Prompts", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsSystemPromptsGetSystemPromptsPaginatedEndpoint",
+        "requestBody": {
+          "x-name": "PaginationRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfSystemPromptDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/plantation-yield-predictions": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Yield Predictions",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Yield Predictions", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationYieldPredictionsCreatePlantationYieldPredictionEndpoint",
         "requestBody": {
           "x-name": "CreatePlantationYieldPredictionRequest",
@@ -1277,12 +1279,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Yield Predictions",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Yield Predictions", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationYieldPredictionsUpdatePlantationYieldPredictionEndpoint",
         "requestBody": {
           "x-name": "UpdatePlantationYieldPredictionRequest",
@@ -1313,12 +1310,7 @@
     },
     "/api/v1/plantation-yield-predictions/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Yield Predictions",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Yield Predictions", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationYieldPredictionsDeletePlantationYieldPredictionEndpoint",
         "parameters": [
           {
@@ -1345,12 +1337,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Yield Predictions",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Yield Predictions", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationYieldPredictionsGetPlantationYieldPredictionByIdEndpoint",
         "parameters": [
           {
@@ -1379,12 +1366,7 @@
     },
     "/api/v1/plantation-yield-predictions/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Yield Predictions",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Yield Predictions", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationYieldPredictionsGetPlantationYieldPredictionsPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -1415,12 +1397,7 @@
     },
     "/api/v1/plantations": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantations",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantations", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationsCreatePlantationEndpoint",
         "requestBody": {
           "x-name": "CreatePlantationRequest",
@@ -1449,12 +1426,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantations",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantations", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationsUpdatePlantationEndpoint",
         "requestBody": {
           "x-name": "UpdatePlantationRequest",
@@ -1485,12 +1457,7 @@
     },
     "/api/v1/plantations/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantations",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantations", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationsDeletePlantationEndpoint",
         "parameters": [
           {
@@ -1517,12 +1484,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantations",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantations", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationsGetPlantationByIdEndpoint",
         "parameters": [
           {
@@ -1551,12 +1513,7 @@
     },
     "/api/v1/plantations/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantations",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantations", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationsGetPlantationsPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -1587,12 +1544,7 @@
     },
     "/api/v1/plantation-harvests": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Harvests",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Harvests", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationHarvestsCreatePlantationHarvestEndpoint",
         "requestBody": {
           "x-name": "CreatePlantationHarvestRequest",
@@ -1621,12 +1573,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Harvests",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Harvests", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationHarvestsUpdatePlantationHarvestEndpoint",
         "requestBody": {
           "x-name": "UpdatePlantationHarvestRequest",
@@ -1657,12 +1604,7 @@
     },
     "/api/v1/plantation-harvests/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Harvests",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Harvests", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationHarvestsDeletePlantationHarvestEndpoint",
         "parameters": [
           {
@@ -1689,12 +1631,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Harvests",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Harvests", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationHarvestsGetPlantationHarvestByIdEndpoint",
         "parameters": [
           {
@@ -1723,12 +1660,7 @@
     },
     "/api/v1/plantation-harvests/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Harvests",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Harvests", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationHarvestsGetPlantationHarvestsPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -1759,12 +1691,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/histogram/air-temperature-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetAirTemperatureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -1811,12 +1738,7 @@
     },
     "/api/v1/dashboard/plantations/area-chart/cumulative-harvest-count": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetCumulativeHarvestCountAreaChartEndpoint",
         "parameters": [
           {
@@ -1871,12 +1793,7 @@
     },
     "/api/v1/dashboard/plantations/area-chart/cumulative-harvest-yield": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetCumulativeHarvestYieldAreaChartEndpoint",
         "parameters": [
           {
@@ -1931,12 +1848,7 @@
     },
     "/api/v1/dashboard/plantations/area-chart/cumulative-metric-readings": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetCumulativeMetricReadingsAreaChartEndpoint",
         "parameters": [
           {
@@ -1991,12 +1903,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/bar-chart/monthly-harvest-comparison": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetMonthlyHarvestComparisonChartEndpoint",
         "parameters": [
           {
@@ -2043,12 +1950,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/summary/basic": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationBasicSummaryEndpoint",
         "parameters": [
           {
@@ -2077,12 +1979,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/timeseries/environmental": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationEnvironmentalTimeseriesEndpoint",
         "parameters": [
           {
@@ -2137,12 +2034,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/chart/environmental-zones": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationEnvironmentalZonesChartEndpoint",
         "parameters": [
           {
@@ -2188,12 +2080,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/chart/harvest-by-month": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationHarvestByMonthChartEndpoint",
         "parameters": [
           {
@@ -2240,12 +2127,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/harvest": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationHarvestSummaryEndpoint",
         "parameters": [
           {
@@ -2292,12 +2174,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/timeseries/harvest": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationHarvestTimeseriesEndpoint",
         "parameters": [
           {
@@ -2352,12 +2229,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/ranking": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationRankingEndpoint",
         "parameters": [
           {
@@ -2404,12 +2276,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/chart/tree-activity": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationTreeActivityChartEndpoint",
         "parameters": [
           {
@@ -2438,12 +2305,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/timeseries/trees": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationTreeGrowthTimeseriesEndpoint",
         "parameters": [
           {
@@ -2498,12 +2360,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/summary/trees": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetPlantationTreesSummaryEndpoint",
         "parameters": [
           {
@@ -2532,12 +2389,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/histogram/soil-moisture-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetSoilMoistureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -2584,12 +2436,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/histogram/soil-temperature-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetSoilTemperatureDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -2636,12 +2483,7 @@
     },
     "/api/v1/dashboard/plantations/area-chart/stacked-metrics-by-type": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetStackedMetricsByTypeAreaChartEndpoint",
         "parameters": [
           {
@@ -2696,12 +2538,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/bar-chart/top-trees-by-metric": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTopTreesByMetricChartEndpoint",
         "parameters": [
           {
@@ -2764,12 +2601,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/bar-chart/tree-activity-trend": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTreeActivityTrendChartEndpoint",
         "parameters": [
           {
@@ -2816,12 +2648,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/histogram/tree-age-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTreeAgeDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -2859,12 +2686,7 @@
     },
     "/api/v1/dashboard/plantations/area-chart/tree-monitoring-adoption": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTreeMonitoringAdoptionAreaChartEndpoint",
         "parameters": [
           {
@@ -2919,12 +2741,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/bar-chart/trees-by-zone": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTreesByZoneChartEndpoint",
         "parameters": [
           {
@@ -2970,12 +2787,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/histogram/tree-yield-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetTreeYieldDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -3031,12 +2843,7 @@
     },
     "/api/v1/dashboard/plantations/{plantationId}/bar-chart/weekly-harvest-performance": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationDashboardGetWeeklyHarvestPerformanceChartEndpoint",
         "parameters": [
           {
@@ -3074,12 +2881,7 @@
     },
     "/api/v1/plantation-coordinates": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Coordinates",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Coordinates", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationCoordinatesCreatePlantationCoordinateEndpoint",
         "requestBody": {
           "x-name": "CreatePlantationCoordinateRequest",
@@ -3108,12 +2910,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Coordinates",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Coordinates", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationCoordinatesUpdatePlantationCoordinateEndpoint",
         "requestBody": {
           "x-name": "UpdatePlantationCoordinateRequest",
@@ -3144,12 +2941,7 @@
     },
     "/api/v1/plantation-coordinates/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Coordinates",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Coordinates", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationCoordinatesDeletePlantationCoordinateEndpoint",
         "parameters": [
           {
@@ -3176,12 +2968,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Coordinates",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Coordinates", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationCoordinatesGetPlantationCoordinateByIdEndpoint",
         "parameters": [
           {
@@ -3210,12 +2997,7 @@
     },
     "/api/v1/plantation-coordinates/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Plantation Coordinates",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Plantation Coordinates", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsPlantationCoordinatesGetPlantationCoordinatesPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -3246,12 +3028,7 @@
     },
     "/api/v1/models/{modelId}/training-complete": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsCompleteTrainingEndpoint",
         "parameters": [
           {
@@ -3293,12 +3070,7 @@
     },
     "/api/v1/models": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsCreateModelEndpoint",
         "requestBody": {
           "x-name": "CreateModelRequest",
@@ -3335,12 +3107,7 @@
         ]
       },
       "put": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsUpdateModelEndpoint",
         "requestBody": {
           "x-name": "UpdateModelRequest",
@@ -3379,12 +3146,7 @@
     },
     "/api/v1/models/{id}": {
       "delete": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsDeleteModelEndpoint",
         "parameters": [
           {
@@ -3419,12 +3181,7 @@
         ]
       },
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsGetModelByIdEndpoint",
         "parameters": [
           {
@@ -3461,12 +3218,7 @@
     },
     "/api/v1/models/paginated": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsGetModelsPaginatedEndpoint",
         "requestBody": {
           "x-name": "PaginationRequest",
@@ -3505,12 +3257,7 @@
     },
     "/api/v1/models/train": {
       "post": {
-        "tags": [
-          "Api",
-          "V1",
-          "Models",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Models", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsModelsTrainModelEndpoint",
         "requestBody": {
           "x-name": "TrainModelRequest",
@@ -3547,14 +3294,156 @@
         ]
       }
     },
+    "/api/v1/knowledge-bases": {
+      "post": {
+        "tags": ["Api", "V1", "Knowledge Bases", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsKnowledgeBasesCreateKnowledgeBaseEndpoint",
+        "requestBody": {
+          "x-name": "CreateKnowledgeBaseRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsCreateKnowledgeBaseRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfKnowledgeBaseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Api", "V1", "Knowledge Bases", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsKnowledgeBasesUpdateKnowledgeBaseEndpoint",
+        "requestBody": {
+          "x-name": "UpdateKnowledgeBaseRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsUpdateKnowledgeBaseRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfKnowledgeBaseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/knowledge-bases/{id}": {
+      "delete": {
+        "tags": ["Api", "V1", "Knowledge Bases", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsKnowledgeBasesDeleteKnowledgeBaseEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Api", "V1", "Knowledge Bases", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsKnowledgeBasesGetKnowledgeBaseByIdEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfKnowledgeBaseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/knowledge-bases/paginated": {
+      "post": {
+        "tags": ["Api", "V1", "Knowledge Bases", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsKnowledgeBasesGetKnowledgeBasesPaginatedEndpoint",
+        "requestBody": {
+          "x-name": "PaginationRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfKnowledgeBaseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/dashboard/histogram/avg-harvest-size-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetAvgHarvestSizeDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -3601,12 +3490,7 @@
     },
     "/api/v1/dashboard/area-chart/cumulative-active-trees": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetCumulativeActiveTreesAreaChartEndpoint",
         "parameters": [
           {
@@ -3652,12 +3536,7 @@
     },
     "/api/v1/dashboard/area-chart/cumulative-harvest-count": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetCumulativeHarvestCountAreaChartEndpoint",
         "parameters": [
           {
@@ -3703,12 +3582,7 @@
     },
     "/api/v1/dashboard/area-chart/cumulative-yield": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetCumulativeYieldAreaChartEndpoint",
         "parameters": [
           {
@@ -3754,12 +3628,7 @@
     },
     "/api/v1/dashboard/environmental/averages": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetEnvironmentalAveragesEndpoint",
         "parameters": [
           {
@@ -3797,12 +3666,7 @@
     },
     "/api/v1/dashboard/timeseries/environmental": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetEnvironmentalTimeseriesEndpoint",
         "parameters": [
           {
@@ -3848,12 +3712,7 @@
     },
     "/api/v1/dashboard/chart/harvest-by-plantation": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetHarvestByPlantationChartEndpoint",
         "parameters": [
           {
@@ -3891,12 +3750,7 @@
     },
     "/api/v1/dashboard/bar-chart/harvest-frequency-by-plantation": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetHarvestFrequencyByPlantationChartEndpoint",
         "parameters": [
           {
@@ -3934,12 +3788,7 @@
     },
     "/api/v1/dashboard/histogram/harvest-frequency-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetHarvestFrequencyDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -3986,12 +3835,7 @@
     },
     "/api/v1/dashboard/harvest": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetHarvestSummaryEndpoint",
         "parameters": [
           {
@@ -4029,12 +3873,7 @@
     },
     "/api/v1/dashboard/timeseries/harvest": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetHarvestTimeseriesEndpoint",
         "parameters": [
           {
@@ -4080,12 +3919,7 @@
     },
     "/api/v1/dashboard/summary/land-area": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetLandAreaSummaryEndpoint",
         "parameters": [
           {
@@ -4123,12 +3957,7 @@
     },
     "/api/v1/dashboard/area-chart/plantation-growth": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationGrowthAreaChartEndpoint",
         "parameters": [
           {
@@ -4174,12 +4003,7 @@
     },
     "/api/v1/dashboard/timeseries/plantations": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationGrowthTimeseriesEndpoint",
         "parameters": [
           {
@@ -4225,12 +4049,7 @@
     },
     "/api/v1/dashboard/chart/plantations-by-land-area": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationsByLandAreaChartEndpoint",
         "responses": {
           "200": {
@@ -4248,12 +4067,7 @@
     },
     "/api/v1/dashboard/chart/plantations-by-trees": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationsByTreesChartEndpoint",
         "responses": {
           "200": {
@@ -4271,12 +4085,7 @@
     },
     "/api/v1/dashboard/histogram/plantation-size-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationSizeDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -4305,12 +4114,7 @@
     },
     "/api/v1/dashboard/summary/plantations": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetPlantationsSummaryEndpoint",
         "parameters": [
           {
@@ -4348,12 +4152,7 @@
     },
     "/api/v1/dashboard/area-chart/stacked-yield-by-plantation": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetStackedYieldByPlantationAreaChartEndpoint",
         "parameters": [
           {
@@ -4408,12 +4207,7 @@
     },
     "/api/v1/dashboard/bar-chart/top-plantations-by-avg-harvest": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTopPlantationsByAvgHarvestChartEndpoint",
         "parameters": [
           {
@@ -4460,12 +4254,7 @@
     },
     "/api/v1/dashboard/bar-chart/top-plantations-by-yield": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTopPlantationsByYieldChartEndpoint",
         "parameters": [
           {
@@ -4512,12 +4301,7 @@
     },
     "/api/v1/dashboard/bar-chart/tree-activity-by-plantation": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreeActivityByPlantationChartEndpoint",
         "responses": {
           "200": {
@@ -4535,12 +4319,7 @@
     },
     "/api/v1/dashboard/chart/tree-activity-status": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreeActivityStatusChartEndpoint",
         "responses": {
           "200": {
@@ -4558,12 +4337,7 @@
     },
     "/api/v1/dashboard/bar-chart/tree-count-by-plantation": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreeCountByPlantationChartEndpoint",
         "parameters": [
           {
@@ -4592,12 +4366,7 @@
     },
     "/api/v1/dashboard/histogram/tree-density-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreeDensityDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -4626,12 +4395,7 @@
     },
     "/api/v1/dashboard/area-chart/tree-population-growth": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreePopulationGrowthAreaChartEndpoint",
         "parameters": [
           {
@@ -4677,12 +4441,7 @@
     },
     "/api/v1/dashboard/summary/trees": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetTreesSummaryEndpoint",
         "parameters": [
           {
@@ -4720,12 +4479,7 @@
     },
     "/api/v1/dashboard/histogram/yield-distribution": {
       "get": {
-        "tags": [
-          "Api",
-          "V1",
-          "Dashboard",
-          "Api"
-        ],
+        "tags": ["Api", "V1", "Dashboard", "Api"],
         "operationId": "TbSenseBackendEndpointsEndpointsDashboardGetYieldDistributionHistogramEndpoint",
         "parameters": [
           {
@@ -4763,6 +4517,300 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfYieldDistributionHistogramResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-sessions": {
+      "post": {
+        "tags": ["Api", "V1", "AI Sessions", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionsCreateAiSessionEndpoint",
+        "requestBody": {
+          "x-name": "CreateAiSessionRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsCreateAiSessionRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Api", "V1", "AI Sessions", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionsUpdateAiSessionEndpoint",
+        "requestBody": {
+          "x-name": "UpdateAiSessionRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsUpdateAiSessionRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-sessions/{id}": {
+      "delete": {
+        "tags": ["Api", "V1", "AI Sessions", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionsDeleteAiSessionEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Api", "V1", "AI Sessions", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionsGetAiSessionByIdEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-sessions/paginated": {
+      "post": {
+        "tags": ["Api", "V1", "AI Sessions", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionsGetAiSessionsPaginatedEndpoint",
+        "requestBody": {
+          "x-name": "PaginationRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfAiSessionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-session-chats": {
+      "post": {
+        "tags": ["Api", "V1", "AI Session Chats", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionChatsCreateAiSessionChatEndpoint",
+        "requestBody": {
+          "x-name": "CreateAiSessionChatRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsCreateAiSessionChatRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionChatDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Api", "V1", "AI Session Chats", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionChatsUpdateAiSessionChatEndpoint",
+        "requestBody": {
+          "x-name": "UpdateAiSessionChatRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsUpdateAiSessionChatRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionChatDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-session-chats/{id}": {
+      "delete": {
+        "tags": ["Api", "V1", "AI Session Chats", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionChatsDeleteAiSessionChatEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Api", "V1", "AI Session Chats", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionChatsGetAiSessionChatByIdEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionChatDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-session-chats/paginated": {
+      "post": {
+        "tags": ["Api", "V1", "AI Session Chats", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsAiSessionChatsGetAiSessionChatsPaginatedEndpoint",
+        "requestBody": {
+          "x-name": "PaginationRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfAiSessionChatDto"
                 }
               }
             }
@@ -6338,6 +6386,130 @@
       "TbSenseBackendEndpointsModelsGetWeeklyMetricsComparisonChartRequest": {
         "type": "object",
         "additionalProperties": false
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfSystemPromptDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsSystemPromptDto"
+              }
+            ]
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsSystemPromptDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "prompt": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "TbSenseBackendAbstractionModelsCreateSystemPromptRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "prompt": {
+            "type": "string"
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfSystemPromptDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfSystemPromptDto"
+              }
+            ]
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfSystemPromptDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsSystemPromptDto"
+            }
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsUpdateSystemPromptRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseUpdateRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "prompt": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPlantationYieldPredictionDto": {
         "type": "object",
@@ -8645,6 +8817,140 @@
           }
         ]
       },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfKnowledgeBaseDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsKnowledgeBaseDto"
+              }
+            ]
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsKnowledgeBaseDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "TbSenseBackendAbstractionModelsCreateKnowledgeBaseRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfKnowledgeBaseDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfKnowledgeBaseDto"
+              }
+            ]
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfKnowledgeBaseDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsKnowledgeBaseDto"
+            }
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsUpdateKnowledgeBaseRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseUpdateRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "content": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAvgHarvestSizeDistributionHistogramResponse": {
         "type": "object",
         "additionalProperties": false,
@@ -10231,6 +10537,303 @@
             "format": "double"
           }
         }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsAiSessionDto"
+              }
+            ]
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsAiSessionDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "lastActivityAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "TbSenseBackendAbstractionModelsCreateAiSessionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "lastActivityAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfAiSessionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfAiSessionDto"
+              }
+            ]
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfAiSessionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsAiSessionDto"
+            }
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsUpdateAiSessionRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseUpdateRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "lastActivityAt": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfAiSessionChatDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsAiSessionChatDto"
+              }
+            ]
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsAiSessionChatDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "role": {
+                "type": "string"
+              },
+              "order": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "TbSenseBackendAbstractionModelsCreateAiSessionChatRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sessionId": {
+            "type": "string",
+            "format": "guid"
+          },
+          "role": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfAiSessionChatDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfAiSessionChatDto"
+              }
+            ]
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkApplicationModelsPaginatedResultOfAiSessionChatDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsAiSessionChatDto"
+            }
+          }
+        }
+      },
+      "TbSenseBackendAbstractionModelsUpdateAiSessionChatRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MasLazuAspNetFrameworkApplicationModelsBaseUpdateRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "role": {
+                "type": "string",
+                "nullable": true
+              },
+              "order": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "content": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       }
     },
     "securitySchemes": {
