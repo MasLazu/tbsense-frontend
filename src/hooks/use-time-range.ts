@@ -47,25 +47,33 @@ function calculateTimeRange(
   switch (preset) {
     case "All Time":
       return {
-        startTime: new Date(0).toISOString(), // Unix epoch (Jan 1, 1970)
-        endTime: now.toISOString(),
+        startTime: new Date(0).toISOString(), // Unix epoch
+        endTime: new Date(
+          Date.now() + 100 * 365 * 24 * 60 * 60 * 1000
+        ).toISOString(), // 100 years from now for stability
       };
     case "This day":
       return {
         startTime: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
-        endTime: now.toISOString(),
+        endTime: new Date(
+          Date.now() + 100 * 365 * 24 * 60 * 60 * 1000
+        ).toISOString(), // Stable future date
       };
     case "This week":
       return {
         startTime: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-        endTime: now.toISOString(),
+        endTime: new Date(
+          Date.now() + 100 * 365 * 24 * 60 * 60 * 1000
+        ).toISOString(), // Stable future date
       };
     case "This month":
       return {
         startTime: new Date(
           Date.now() - 30 * 24 * 60 * 60 * 1000
         ).toISOString(),
-        endTime: now.toISOString(),
+        endTime: new Date(
+          Date.now() + 100 * 365 * 24 * 60 * 60 * 1000
+        ).toISOString(), // Stable future date
       };
     default:
       // Default to "All Time"
@@ -82,18 +90,28 @@ export function useTimeRange() {
   // Get current time range state
   const { data: timeRangeState = DEFAULT_TIME_RANGE } = useQuery({
     queryKey: TIME_RANGE_QUERY_KEY,
-    queryFn: () => DEFAULT_TIME_RANGE,
+    queryFn: () => {
+      console.log(
+        "[useTimeRange] queryFn called - returning DEFAULT_TIME_RANGE"
+      );
+      return DEFAULT_TIME_RANGE;
+    },
     staleTime: Infinity, // Keep the state fresh
     gcTime: Infinity, // Don't garbage collect
+    refetchOnMount: false,
   });
+
+  console.log("[useTimeRange] Current state:", timeRangeState);
 
   // Calculate actual time range parameters
   const params = useMemo(() => {
-    return calculateTimeRange(
+    const calculated = calculateTimeRange(
       timeRangeState.preset,
       timeRangeState.startTime,
       timeRangeState.endTime
     );
+    console.log("[useTimeRange] Calculated params:", calculated);
+    return calculated;
   }, [timeRangeState]);
 
   // Mutation to update time range

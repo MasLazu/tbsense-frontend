@@ -6,7 +6,7 @@ import { LandDistributionChart } from "@/components/land-distribution-chart";
 import { TreeDistributionChart } from "@/components/tree-distribution-chart";
 import { TreeActivityStatusChart } from "@/components/tree-activity-status-chart";
 
-export const Route = createFileRoute("/dashboard/global/distribution/")({
+export const Route = createFileRoute("/dashboard/monitoring/distribution/")({
   component: RouteComponent,
 });
 

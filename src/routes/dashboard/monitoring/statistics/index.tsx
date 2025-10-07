@@ -8,7 +8,7 @@ import { PlantationSizeDistributionChart } from "@/components/plantation-size-di
 import { TreeDensityDistributionChart } from "@/components/tree-density-distribution-chart";
 import { YieldDistributionChart } from "@/components/yield-distribution-chart";
 
-export const Route = createFileRoute("/dashboard/global/statistics/")({
+export const Route = createFileRoute("/dashboard/monitoring/statistics/")({
   component: RouteComponent,
 });
 

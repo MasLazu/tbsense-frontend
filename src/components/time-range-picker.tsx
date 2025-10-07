@@ -101,6 +101,23 @@ export function TimeRangePicker({
   );
   const [searchQuery, setSearchQuery] = React.useState("");
 
+  // Update internal state when defaultValue changes (e.g., on navigation)
+  // Using JSON.stringify to properly detect deep changes in the object
+  React.useEffect(() => {
+    if (defaultValue) {
+      console.log("[TimeRangePicker] defaultValue changed:", defaultValue);
+      setSelectedRange(defaultValue);
+      setFromDate(defaultValue.from);
+      setToDate(defaultValue.to);
+      setFromTime(format(defaultValue.from, "HH:mm:ss"));
+      setToTime(format(defaultValue.to, "HH:mm:ss"));
+    }
+  }, [
+    defaultValue?.from?.getTime(),
+    defaultValue?.to?.getTime(),
+    defaultValue?.label,
+  ]);
+
   const filteredRanges = QUICK_RANGES.filter((range) =>
     range.label.toLowerCase().includes(searchQuery.toLowerCase())
   );

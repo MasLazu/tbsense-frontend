@@ -4,12 +4,13 @@ import * as React from "react";
 import {
   AudioWaveform,
   Bot,
+  ChartLine,
   ChartPie,
   Command,
   Frame,
   GalleryVerticalEnd,
-  Globe,
   Map,
+  MonitorCog,
   PieChart,
   Sprout,
 } from "lucide-react";
@@ -20,7 +21,6 @@ import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
@@ -63,49 +63,51 @@ const data = {
       isActive: true,
     },
     {
-      title: "Globals",
+      title: "Monitoring",
       url: "#",
-      icon: Globe,
+      icon: ChartLine,
       isActive: true,
       items: [
         {
           title: "Environment",
-          url: "/dashboard/global/environment",
+          url: "/dashboard/monitoring/environment",
         },
         {
           title: "Distribution",
-          url: "/dashboard/global/distribution",
+          url: "/dashboard/monitoring/distribution",
         },
         {
           title: "Harvest",
-          url: "/dashboard/global/harvest",
+          url: "/dashboard/monitoring/harvest",
         },
         {
           title: "Statistics",
-          url: "/dashboard/global/statistics",
+          url: "/dashboard/monitoring/statistics",
         },
       ],
     },
     {
       title: "Plantations",
-      url: "#",
+      url: "/dashboard/plantations",
       icon: Sprout,
+    },
+    {
+      title: "Ai Management",
+      url: "#",
+      icon: MonitorCog,
+      isActive: true,
       items: [
         {
-          title: "Environment",
-          url: "/dashboard/plantations/environment",
+          title: "Knowledge Base",
+          url: "/dashboard/ai-management/knowledge-base",
         },
         {
-          title: "Distribution",
-          url: "/dashboard/plantations/distribution",
+          title: "System Prompt",
+          url: "/dashboard/ai-management/system-prompt",
         },
         {
-          title: "Harvest",
-          url: "/dashboard/plantations/harvest",
-        },
-        {
-          title: "Statistics",
-          url: "/dashboard/plantations/statistics",
+          title: "Prediction",
+          url: "/dashboard/ai-management/prediction",
         },
       ],
     },
@@ -141,7 +143,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} groupLabel="Settings" />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
-      <SidebarFooter>{/* NavUser moved to dashboard header */}</SidebarFooter>
+      {/* <SidebarFooter>NavUser moved to dashboard header</SidebarFooter> */}
       <SidebarRail />
     </Sidebar>
   );

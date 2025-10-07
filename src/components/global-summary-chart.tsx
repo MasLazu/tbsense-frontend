@@ -28,6 +28,14 @@ export default function GlobalSummaryChart({
   const apiParams = timeParams
     ? { startDate: timeParams.startTime, endDate: timeParams.endTime }
     : undefined;
+
+  // Debug logging
+  React.useEffect(() => {
+    console.log("[GlobalSummaryChart] Component mounted/updated");
+    console.log("[GlobalSummaryChart] timeParams:", timeParams);
+    console.log("[GlobalSummaryChart] apiParams:", apiParams);
+  }, [timeParams, apiParams]);
+
   const {
     data: landArea,
     isLoading: landLoading,
@@ -35,6 +43,14 @@ export default function GlobalSummaryChart({
     error: landErrorObj,
     refetch: refetchLand,
   } = useLandAreaSummary(apiParams ?? params);
+
+  React.useEffect(() => {
+    console.log("[GlobalSummaryChart] Land Area Query State:", {
+      hasData: !!landArea,
+      isLoading: landLoading,
+      isError: landError,
+    });
+  }, [landArea, landLoading, landError]);
 
   const {
     data: plantations,

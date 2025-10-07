@@ -5,7 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ApiError } from "@/lib/api-client";
 
-export const queryClient = new QueryClient({
+// Create QueryClient instance ONCE outside of the component
+// This ensures the cache persists across navigations
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 5 * 60 * 1000,
@@ -25,6 +27,7 @@ export const queryClient = new QueryClient({
       },
       refetchOnWindowFocus: false,
       refetchOnReconnect: true,
+      refetchOnMount: false, // Prevent refetching when component remounts
     },
     mutations: {
       retry: false,
@@ -35,10 +38,17 @@ export const queryClient = new QueryClient({
   },
 });
 
+// Export for use in other parts of the app if needed
+export { queryClient };
+
 (globalThis as any).__reactQueryClient = queryClient;
 
 export const Route = createRootRoute({
-  component: () => (
+  component: RootComponent,
+});
+
+function RootComponent() {
+  return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <ReactQueryDevtools initialIsOpen={false} />
@@ -54,5 +64,5 @@ export const Route = createRootRoute({
         ]}
       />
     </QueryClientProvider>
-  ),
-});
+  );
+}

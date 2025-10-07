@@ -26,10 +26,18 @@ export const globalSummaryKeys = {
 export function useLandAreaSummary(params?: GlobalSummaryParams) {
   const { accessToken } = useAuth();
 
+  const queryKey = globalSummaryKeys.landArea(params);
+  console.log("[useLandAreaSummary] Query Key:", queryKey);
+  console.log("[useLandAreaSummary] Params:", params);
+
   return useQuery<LandAreaSummaryResponse>({
-    queryKey: globalSummaryKeys.landArea(params),
-    queryFn: () => GlobalSummaryService.getLandAreaSummary(accessToken, params),
-    staleTime: 60 * 1000,
+    queryKey,
+    queryFn: () => {
+      console.log("[useLandAreaSummary] queryFn executing...");
+      return GlobalSummaryService.getLandAreaSummary(accessToken, params);
+    },
+    staleTime: 5 * 60 * 1000,
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
 }

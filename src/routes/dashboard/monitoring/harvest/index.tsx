@@ -9,7 +9,7 @@ import { HarvestTimeseriesChart } from "@/components/harvest-timeseries-chart";
 import { CumulativeHarvestCountChart } from "@/components/cumulative-harvest-count-chart";
 import { CumulativeYieldChart } from "@/components/cumulative-yield-chart";
 
-export const Route = createFileRoute("/dashboard/global/harvest/")({
+export const Route = createFileRoute("/dashboard/monitoring/harvest/")({
   component: RouteComponent,
 });
 

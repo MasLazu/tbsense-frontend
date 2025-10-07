@@ -55,8 +55,19 @@ export function TimeRangeProvider({
 
   // Calculate default value for the picker
   const defaultValue = React.useMemo(() => {
+    console.log("[TimeRangeProvider] Calculating defaultValue with:", {
+      preset,
+      startTime,
+      endTime,
+      params,
+    });
+
     if (startTime && endTime) {
-      return { from: new Date(startTime), to: new Date(endTime) };
+      return {
+        from: new Date(startTime),
+        to: new Date(endTime),
+        label: "Custom range",
+      };
     }
 
     if (preset !== "custom" && params.startTime && params.endTime) {
@@ -73,7 +84,9 @@ export function TimeRangeProvider({
       from: new Date(0), // Unix epoch (Jan 1, 1970)
       to: new Date(),
     };
-  }, [preset, startTime, endTime, params]);
+  }, [preset, startTime, endTime, params.startTime, params.endTime]);
+
+  console.log("[TimeRangeProvider] Rendering with defaultValue:", defaultValue);
 
   return (
     <div className={className}>

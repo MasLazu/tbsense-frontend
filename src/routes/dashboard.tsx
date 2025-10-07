@@ -1,4 +1,5 @@
 import { Outlet, createFileRoute, useMatches } from "@tanstack/react-router";
+import * as React from "react";
 
 import { AppSidebar } from "@/components/app-sidebar";
 import {
@@ -23,22 +24,48 @@ export const Route = createFileRoute("/dashboard")({
 
 function DashboardLayout() {
   const matches = useMatches();
-  const breadcrumbs = matches
-    .filter((match) => match.routeId !== "__root__")
-    .map((match) => {
-      let title = match.routeId
-        .replace("/dashboard/", "")
-        .replace("/", " ")
-        .split(" ")
-        .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+
+  // Build breadcrumbs from route matches
+  const breadcrumbs = React.useMemo(() => {
+    // Get all path segments from all matches
+    const allSegments: Array<{ segment: string; fullPath: string }> = [];
+
+    matches
+      .filter((match) => match.routeId !== "__root__")
+      .forEach((match) => {
+        const segments = match.routeId
+          .replace(/^\/dashboard\/?/, "") // Remove /dashboard prefix
+          .split("/")
+          .filter(Boolean); // Remove empty segments
+
+        segments.forEach((segment, index) => {
+          // Build full path up to this segment
+          const pathUpToHere = segments.slice(0, index + 1);
+          const fullPath =
+            "/dashboard" +
+            (pathUpToHere.length > 0 ? "/" + pathUpToHere.join("/") : "");
+
+          // Only add if not already in the list (avoid duplicates)
+          if (!allSegments.some((s) => s.fullPath === fullPath)) {
+            allSegments.push({ segment, fullPath });
+          }
+        });
+      });
+
+    // Convert to breadcrumb objects
+    return allSegments.map((item, index) => {
+      const title = item.segment
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
 
       return {
         title,
-        path: match.pathname,
-        isLast: match.id === matches[matches.length - 1].id,
+        path: item.fullPath,
+        isLast: index === allSegments.length - 1,
       };
     });
+  }, [matches]);
 
   return (
     <SidebarProvider>

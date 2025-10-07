@@ -9,7 +9,7 @@ import { TemperatureDifferentialChart } from "@/components/temperature-different
 import { DayNightTemperatureComparison } from "@/components/day-night-temperature-comparison";
 import { TimeRangeProvider } from "@/components/time-range-provider";
 
-export const Route = createFileRoute("/dashboard/global/environment/")({
+export const Route = createFileRoute("/dashboard/monitoring/environment/")({
   component: RouteComponent,
 });
 

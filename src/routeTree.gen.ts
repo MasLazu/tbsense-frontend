@@ -11,11 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboard/plantations/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
-import { Route as DashboardGlobalStatisticsIndexRouteImport } from './routes/dashboard/global/statistics/index'
-import { Route as DashboardGlobalHarvestIndexRouteImport } from './routes/dashboard/global/harvest/index'
-import { Route as DashboardGlobalEnvironmentIndexRouteImport } from './routes/dashboard/global/environment/index'
-import { Route as DashboardGlobalDistributionIndexRouteImport } from './routes/dashboard/global/distribution/index'
+import { Route as DashboardMonitoringStatisticsIndexRouteImport } from './routes/dashboard/monitoring/statistics/index'
+import { Route as DashboardMonitoringHarvestIndexRouteImport } from './routes/dashboard/monitoring/harvest/index'
+import { Route as DashboardMonitoringEnvironmentIndexRouteImport } from './routes/dashboard/monitoring/environment/index'
+import { Route as DashboardMonitoringDistributionIndexRouteImport } from './routes/dashboard/monitoring/distribution/index'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -27,33 +28,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardPlantationsIndexRoute =
+  DashboardPlantationsIndexRouteImport.update({
+    id: '/plantations/',
+    path: '/plantations/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 const DashboardOverviewIndexRoute = DashboardOverviewIndexRouteImport.update({
   id: '/overview/',
   path: '/overview/',
   getParentRoute: () => DashboardRoute,
 } as any)
-const DashboardGlobalStatisticsIndexRoute =
-  DashboardGlobalStatisticsIndexRouteImport.update({
-    id: '/global/statistics/',
-    path: '/global/statistics/',
+const DashboardMonitoringStatisticsIndexRoute =
+  DashboardMonitoringStatisticsIndexRouteImport.update({
+    id: '/monitoring/statistics/',
+    path: '/monitoring/statistics/',
     getParentRoute: () => DashboardRoute,
   } as any)
-const DashboardGlobalHarvestIndexRoute =
-  DashboardGlobalHarvestIndexRouteImport.update({
-    id: '/global/harvest/',
-    path: '/global/harvest/',
+const DashboardMonitoringHarvestIndexRoute =
+  DashboardMonitoringHarvestIndexRouteImport.update({
+    id: '/monitoring/harvest/',
+    path: '/monitoring/harvest/',
     getParentRoute: () => DashboardRoute,
   } as any)
-const DashboardGlobalEnvironmentIndexRoute =
-  DashboardGlobalEnvironmentIndexRouteImport.update({
-    id: '/global/environment/',
-    path: '/global/environment/',
+const DashboardMonitoringEnvironmentIndexRoute =
+  DashboardMonitoringEnvironmentIndexRouteImport.update({
+    id: '/monitoring/environment/',
+    path: '/monitoring/environment/',
     getParentRoute: () => DashboardRoute,
   } as any)
-const DashboardGlobalDistributionIndexRoute =
-  DashboardGlobalDistributionIndexRouteImport.update({
-    id: '/global/distribution/',
-    path: '/global/distribution/',
+const DashboardMonitoringDistributionIndexRoute =
+  DashboardMonitoringDistributionIndexRouteImport.update({
+    id: '/monitoring/distribution/',
+    path: '/monitoring/distribution/',
     getParentRoute: () => DashboardRoute,
   } as any)
 
@@ -61,29 +68,32 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
-  '/dashboard/global/distribution': typeof DashboardGlobalDistributionIndexRoute
-  '/dashboard/global/environment': typeof DashboardGlobalEnvironmentIndexRoute
-  '/dashboard/global/harvest': typeof DashboardGlobalHarvestIndexRoute
-  '/dashboard/global/statistics': typeof DashboardGlobalStatisticsIndexRoute
+  '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
+  '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
+  '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
+  '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
+  '/dashboard/monitoring/statistics': typeof DashboardMonitoringStatisticsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
-  '/dashboard/global/distribution': typeof DashboardGlobalDistributionIndexRoute
-  '/dashboard/global/environment': typeof DashboardGlobalEnvironmentIndexRoute
-  '/dashboard/global/harvest': typeof DashboardGlobalHarvestIndexRoute
-  '/dashboard/global/statistics': typeof DashboardGlobalStatisticsIndexRoute
+  '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
+  '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
+  '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
+  '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
+  '/dashboard/monitoring/statistics': typeof DashboardMonitoringStatisticsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
-  '/dashboard/global/distribution/': typeof DashboardGlobalDistributionIndexRoute
-  '/dashboard/global/environment/': typeof DashboardGlobalEnvironmentIndexRoute
-  '/dashboard/global/harvest/': typeof DashboardGlobalHarvestIndexRoute
-  '/dashboard/global/statistics/': typeof DashboardGlobalStatisticsIndexRoute
+  '/dashboard/plantations/': typeof DashboardPlantationsIndexRoute
+  '/dashboard/monitoring/distribution/': typeof DashboardMonitoringDistributionIndexRoute
+  '/dashboard/monitoring/environment/': typeof DashboardMonitoringEnvironmentIndexRoute
+  '/dashboard/monitoring/harvest/': typeof DashboardMonitoringHarvestIndexRoute
+  '/dashboard/monitoring/statistics/': typeof DashboardMonitoringStatisticsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,28 +101,31 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/overview'
-    | '/dashboard/global/distribution'
-    | '/dashboard/global/environment'
-    | '/dashboard/global/harvest'
-    | '/dashboard/global/statistics'
+    | '/dashboard/plantations'
+    | '/dashboard/monitoring/distribution'
+    | '/dashboard/monitoring/environment'
+    | '/dashboard/monitoring/harvest'
+    | '/dashboard/monitoring/statistics'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dashboard'
     | '/dashboard/overview'
-    | '/dashboard/global/distribution'
-    | '/dashboard/global/environment'
-    | '/dashboard/global/harvest'
-    | '/dashboard/global/statistics'
+    | '/dashboard/plantations'
+    | '/dashboard/monitoring/distribution'
+    | '/dashboard/monitoring/environment'
+    | '/dashboard/monitoring/harvest'
+    | '/dashboard/monitoring/statistics'
   id:
     | '__root__'
     | '/'
     | '/dashboard'
     | '/dashboard/overview/'
-    | '/dashboard/global/distribution/'
-    | '/dashboard/global/environment/'
-    | '/dashboard/global/harvest/'
-    | '/dashboard/global/statistics/'
+    | '/dashboard/plantations/'
+    | '/dashboard/monitoring/distribution/'
+    | '/dashboard/monitoring/environment/'
+    | '/dashboard/monitoring/harvest/'
+    | '/dashboard/monitoring/statistics/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,6 +149,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/plantations/': {
+      id: '/dashboard/plantations/'
+      path: '/plantations'
+      fullPath: '/dashboard/plantations'
+      preLoaderRoute: typeof DashboardPlantationsIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/overview/': {
       id: '/dashboard/overview/'
       path: '/overview'
@@ -143,32 +163,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardOverviewIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/global/statistics/': {
-      id: '/dashboard/global/statistics/'
-      path: '/global/statistics'
-      fullPath: '/dashboard/global/statistics'
-      preLoaderRoute: typeof DashboardGlobalStatisticsIndexRouteImport
+    '/dashboard/monitoring/statistics/': {
+      id: '/dashboard/monitoring/statistics/'
+      path: '/monitoring/statistics'
+      fullPath: '/dashboard/monitoring/statistics'
+      preLoaderRoute: typeof DashboardMonitoringStatisticsIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/global/harvest/': {
-      id: '/dashboard/global/harvest/'
-      path: '/global/harvest'
-      fullPath: '/dashboard/global/harvest'
-      preLoaderRoute: typeof DashboardGlobalHarvestIndexRouteImport
+    '/dashboard/monitoring/harvest/': {
+      id: '/dashboard/monitoring/harvest/'
+      path: '/monitoring/harvest'
+      fullPath: '/dashboard/monitoring/harvest'
+      preLoaderRoute: typeof DashboardMonitoringHarvestIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/global/environment/': {
-      id: '/dashboard/global/environment/'
-      path: '/global/environment'
-      fullPath: '/dashboard/global/environment'
-      preLoaderRoute: typeof DashboardGlobalEnvironmentIndexRouteImport
+    '/dashboard/monitoring/environment/': {
+      id: '/dashboard/monitoring/environment/'
+      path: '/monitoring/environment'
+      fullPath: '/dashboard/monitoring/environment'
+      preLoaderRoute: typeof DashboardMonitoringEnvironmentIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/global/distribution/': {
-      id: '/dashboard/global/distribution/'
-      path: '/global/distribution'
-      fullPath: '/dashboard/global/distribution'
-      preLoaderRoute: typeof DashboardGlobalDistributionIndexRouteImport
+    '/dashboard/monitoring/distribution/': {
+      id: '/dashboard/monitoring/distribution/'
+      path: '/monitoring/distribution'
+      fullPath: '/dashboard/monitoring/distribution'
+      preLoaderRoute: typeof DashboardMonitoringDistributionIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
   }
@@ -176,18 +196,23 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
-  DashboardGlobalDistributionIndexRoute: typeof DashboardGlobalDistributionIndexRoute
-  DashboardGlobalEnvironmentIndexRoute: typeof DashboardGlobalEnvironmentIndexRoute
-  DashboardGlobalHarvestIndexRoute: typeof DashboardGlobalHarvestIndexRoute
-  DashboardGlobalStatisticsIndexRoute: typeof DashboardGlobalStatisticsIndexRoute
+  DashboardPlantationsIndexRoute: typeof DashboardPlantationsIndexRoute
+  DashboardMonitoringDistributionIndexRoute: typeof DashboardMonitoringDistributionIndexRoute
+  DashboardMonitoringEnvironmentIndexRoute: typeof DashboardMonitoringEnvironmentIndexRoute
+  DashboardMonitoringHarvestIndexRoute: typeof DashboardMonitoringHarvestIndexRoute
+  DashboardMonitoringStatisticsIndexRoute: typeof DashboardMonitoringStatisticsIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,
-  DashboardGlobalDistributionIndexRoute: DashboardGlobalDistributionIndexRoute,
-  DashboardGlobalEnvironmentIndexRoute: DashboardGlobalEnvironmentIndexRoute,
-  DashboardGlobalHarvestIndexRoute: DashboardGlobalHarvestIndexRoute,
-  DashboardGlobalStatisticsIndexRoute: DashboardGlobalStatisticsIndexRoute,
+  DashboardPlantationsIndexRoute: DashboardPlantationsIndexRoute,
+  DashboardMonitoringDistributionIndexRoute:
+    DashboardMonitoringDistributionIndexRoute,
+  DashboardMonitoringEnvironmentIndexRoute:
+    DashboardMonitoringEnvironmentIndexRoute,
+  DashboardMonitoringHarvestIndexRoute: DashboardMonitoringHarvestIndexRoute,
+  DashboardMonitoringStatisticsIndexRoute:
+    DashboardMonitoringStatisticsIndexRoute,
 }
 
 const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
