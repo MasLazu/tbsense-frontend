@@ -1,20 +1,20 @@
 import * as React from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PaginationTable, type Column } from "@/components/pagination-table";
 import type { PaginationController } from "@/types/pagination";
 import {
-  usePlantationsPaginated,
-  useCreatePlantation,
-  useUpdatePlantation,
-  useDeletePlantation,
-} from "@/hooks/use-plantations";
+  useSystemPromptsPaginated,
+  useCreateSystemPrompt,
+  useUpdateSystemPrompt,
+  useDeleteSystemPrompt,
+} from "@/hooks/use-system-prompts";
 import type {
-  PlantationDto,
-  CreatePlantationRequest,
-  UpdatePlantationRequest,
-} from "@/services/plantations-service";
+  SystemPromptDto,
+  CreateSystemPromptRequest,
+  UpdateSystemPromptRequest,
+} from "@/services/system-prompts-service";
 import { Button } from "@/components/ui/button";
-import { Plus, Pencil, Trash2, Loader2, BarChart3 } from "lucide-react";
+import { Plus, Pencil, Trash2, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
@@ -27,29 +27,28 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { DatePicker } from "@/components/ui/date-picker";
+import { Switch } from "@/components/ui/switch";
 
-export const Route = createFileRoute("/dashboard/plantations/")({
+export const Route = createFileRoute("/dashboard/ai-management/system-prompt")({
   component: RouteComponent,
 });
 
 /**
  * Form data interface for create/update
  */
-interface PlantationFormData {
+interface SystemPromptFormData {
   name: string;
-  description: string;
-  landAreaHectares: string;
-  plantedDate: Date | undefined;
+  prompt: string;
+  isActive: boolean;
 }
 
 /**
- * Custom hook to create a pagination controller for plantations
+ * Custom hook to create a pagination controller for system prompts
  */
-function usePlantationsPaginationController(): PaginationController<PlantationDto> {
+function useSystemPromptsPaginationController(): PaginationController<SystemPromptDto> {
   const [page, setPage] = React.useState(1);
   const [pageSize, setPageSize] = React.useState(10);
-  const [sortKey, setSortKey] = React.useState<keyof PlantationDto | null>(
+  const [sortKey, setSortKey] = React.useState<keyof SystemPromptDto | null>(
     null
   );
   const [sortDirection, setSortDirection] = React.useState<
@@ -84,10 +83,10 @@ function usePlantationsPaginationController(): PaginationController<PlantationDt
   }, [page, pageSize, search, sortKey, sortDirection]);
 
   // Fetch data using React Query
-  const { data, isLoading } = usePlantationsPaginated(paginationRequest);
+  const { data, isLoading } = useSystemPromptsPaginated(paginationRequest);
 
   const setSort = React.useCallback(
-    (key: keyof PlantationDto | null, direction: "asc" | "desc" | null) => {
+    (key: keyof SystemPromptDto | null, direction: "asc" | "desc" | null) => {
       setSortKey(key);
       setSortDirection(direction);
       setPage(1); // Reset to first page on sort
@@ -118,35 +117,33 @@ function usePlantationsPaginationController(): PaginationController<PlantationDt
 }
 
 function RouteComponent() {
-  const controller = usePlantationsPaginationController();
+  const controller = useSystemPromptsPaginationController();
 
   // Mutation hooks
-  const createMutation = useCreatePlantation();
-  const updateMutation = useUpdatePlantation();
-  const deleteMutation = useDeletePlantation();
+  const createMutation = useCreateSystemPrompt();
+  const updateMutation = useUpdateSystemPrompt();
+  const deleteMutation = useDeleteSystemPrompt();
 
   // Dialog state
   const [createDialogOpen, setCreateDialogOpen] = React.useState(false);
   const [editDialogOpen, setEditDialogOpen] = React.useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false);
-  const [selectedPlantation, setSelectedPlantation] =
-    React.useState<PlantationDto | null>(null);
+  const [selectedSystemPrompt, setSelectedSystemPrompt] =
+    React.useState<SystemPromptDto | null>(null);
 
   // Form state
-  const [formData, setFormData] = React.useState<PlantationFormData>({
+  const [formData, setFormData] = React.useState<SystemPromptFormData>({
     name: "",
-    description: "",
-    landAreaHectares: "",
-    plantedDate: undefined,
+    prompt: "",
+    isActive: true,
   });
 
   // Reset form
   const resetForm = () => {
     setFormData({
       name: "",
-      description: "",
-      landAreaHectares: "",
-      plantedDate: undefined,
+      prompt: "",
+      isActive: true,
     });
   };
 
@@ -158,118 +155,96 @@ function RouteComponent() {
 
   const handleCreateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.plantedDate) return;
 
     try {
-      const request: CreatePlantationRequest = {
+      const request: CreateSystemPromptRequest = {
         name: formData.name,
-        description: formData.description || undefined,
-        landAreaHectares: parseFloat(formData.landAreaHectares),
-        plantedDate: formData.plantedDate.toISOString(),
+        prompt: formData.prompt,
+        isActive: formData.isActive,
       };
       await createMutation.mutateAsync(request);
       setCreateDialogOpen(false);
       resetForm();
     } catch (error) {
-      console.error("Failed to create plantation:", error);
+      console.error("Failed to create system prompt:", error);
     }
   };
 
   // Handle edit
-  const handleEditOpen = (plantation: PlantationDto) => {
-    setSelectedPlantation(plantation);
+  const handleEditOpen = (systemPrompt: SystemPromptDto) => {
+    setSelectedSystemPrompt(systemPrompt);
     setFormData({
-      name: plantation.name,
-      description: plantation.description || "",
-      landAreaHectares: plantation.landAreaHectares.toString(),
-      plantedDate: new Date(plantation.plantedDate),
+      name: systemPrompt.name,
+      prompt: systemPrompt.prompt,
+      isActive: systemPrompt.isActive,
     });
     setEditDialogOpen(true);
   };
 
   const handleEditSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedPlantation) return;
+    if (!selectedSystemPrompt) return;
 
     try {
-      const request: UpdatePlantationRequest = {
-        id: selectedPlantation.id,
+      const request: UpdateSystemPromptRequest = {
+        id: selectedSystemPrompt.id,
         name: formData.name || undefined,
-        description: formData.description || undefined,
-        landAreaHectares: formData.landAreaHectares
-          ? parseFloat(formData.landAreaHectares)
-          : undefined,
-        plantedDate: formData.plantedDate
-          ? formData.plantedDate.toISOString()
-          : undefined,
+        prompt: formData.prompt || undefined,
+        isActive: formData.isActive,
       };
       await updateMutation.mutateAsync(request);
       setEditDialogOpen(false);
-      setSelectedPlantation(null);
+      setSelectedSystemPrompt(null);
       resetForm();
     } catch (error) {
-      console.error("Failed to update plantation:", error);
+      console.error("Failed to update system prompt:", error);
     }
   };
 
   // Handle delete
-  const handleDeleteOpen = (plantation: PlantationDto) => {
-    setSelectedPlantation(plantation);
+  const handleDeleteOpen = (systemPrompt: SystemPromptDto) => {
+    setSelectedSystemPrompt(systemPrompt);
     setDeleteDialogOpen(true);
   };
 
   const handleDeleteConfirm = async () => {
-    if (!selectedPlantation) return;
+    if (!selectedSystemPrompt) return;
 
     try {
-      await deleteMutation.mutateAsync(selectedPlantation.id);
+      await deleteMutation.mutateAsync(selectedSystemPrompt.id);
       setDeleteDialogOpen(false);
-      setSelectedPlantation(null);
+      setSelectedSystemPrompt(null);
     } catch (error) {
-      console.error("Failed to delete plantation:", error);
+      console.error("Failed to delete system prompt:", error);
     }
   };
 
   // Define columns
-  const columns: Column<PlantationDto>[] = [
+  const columns: Column<SystemPromptDto>[] = [
     {
       key: "name",
-      label: "Plantation Name",
+      label: "Name",
       sortable: true,
       render: (value) => <div className="font-medium">{value as string}</div>,
     },
     {
-      key: "description",
-      label: "Description",
+      key: "prompt",
+      label: "Prompt Preview",
+      sortable: true,
       render: (value) => (
         <div className="max-w-md truncate text-muted-foreground">
-          {value ? (value as string) : "-"}
+          {value as string}
         </div>
       ),
     },
     {
-      key: "landAreaHectares",
-      label: "Land Area",
+      key: "isActive",
+      label: "Status",
       sortable: true,
       render: (value) => (
-        <div className="flex items-center gap-1">
-          <span className="font-mono">{Number(value).toFixed(2)}</span>
-          <span className="text-muted-foreground text-xs">ha</span>
-        </div>
-      ),
-    },
-    {
-      key: "plantedDate",
-      label: "Planted Date",
-      sortable: true,
-      render: (value) => (
-        <div className="text-sm">
-          {new Date(value as string).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </div>
+        <Badge variant={value ? "default" : "secondary"}>
+          {value ? "Active" : "Inactive"}
+        </Badge>
       ),
     },
     {
@@ -287,18 +262,26 @@ function RouteComponent() {
       ),
     },
     {
+      key: "updatedAt",
+      label: "Updated",
+      sortable: true,
+      render: (value) => (
+        <div className="text-sm text-muted-foreground">
+          {value
+            ? new Date(value as string).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            : "-"}
+        </div>
+      ),
+    },
+    {
       key: "id",
       label: "Actions",
       render: (_, row) => (
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" className="h-8 w-8 p-0" asChild>
-            <Link
-              to="/dashboard/plantations/$plantationId"
-              params={{ plantationId: row.id }}
-            >
-              <BarChart3 className="h-4 w-4" />
-            </Link>
-          </Button>
           <Button
             variant="ghost"
             size="sm"
@@ -330,9 +313,12 @@ function RouteComponent() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Plantations</h1>
+          <h1 className="text-3xl font-bold tracking-tight">
+            AI System Prompts
+          </h1>
           <p className="text-muted-foreground">
-            Manage and view all your plantations
+            Configure system prompts that define your AI agent's behavior and
+            personality
           </p>
         </div>
       </div>
@@ -341,30 +327,46 @@ function RouteComponent() {
         columns={columns}
         controller={controller}
         searchable={true}
-        searchPlaceholder="Search plantations by name..."
+        searchPlaceholder="Search system prompts by name..."
         pageSizeOptions={[10, 20, 30, 50, 100]}
         actions={
           <Button size="sm" onClick={handleCreateOpen}>
             <Plus className="mr-2 h-4 w-4" />
-            Add Plantation
+            Add System Prompt
           </Button>
         }
         expandable={{
           render: (row) => (
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <div className="text-sm font-medium text-muted-foreground">
-                    Plantation ID
+                    System Prompt ID
                   </div>
                   <div className="font-mono text-sm">{row.id}</div>
                 </div>
                 <div className="space-y-1">
                   <div className="text-sm font-medium text-muted-foreground">
-                    Full Description
+                    Status
                   </div>
-                  <div className="text-sm">
-                    {row.description || "No description provided"}
+                  <div>
+                    <Badge variant={row.isActive ? "default" : "secondary"}>
+                      {row.isActive ? "Active" : "Inactive"}
+                    </Badge>
+                  </div>
+                </div>
+                <div className="space-y-1 col-span-2">
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Name
+                  </div>
+                  <div className="text-sm font-medium">{row.name}</div>
+                </div>
+                <div className="space-y-1 col-span-2">
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Full Prompt
+                  </div>
+                  <div className="text-sm whitespace-pre-wrap bg-muted p-4 rounded-md max-h-96 overflow-y-auto">
+                    {row.prompt || "No prompt provided"}
                   </div>
                 </div>
                 <div className="space-y-1">
@@ -383,13 +385,27 @@ function RouteComponent() {
                       : "Never updated"}
                   </div>
                 </div>
+                <div className="space-y-1">
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Created
+                  </div>
+                  <div className="text-sm">
+                    {new Date(row.createdAt).toLocaleString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </div>
+                </div>
               </div>
               <div className="flex gap-2 pt-2 border-t">
                 <Badge variant="secondary">
-                  {Number(row.landAreaHectares).toFixed(2)} hectares
+                  {row.prompt.length} characters
                 </Badge>
-                <Badge variant="outline">
-                  Planted: {new Date(row.plantedDate).toLocaleDateString()}
+                <Badge variant={row.isActive ? "default" : "outline"}>
+                  {row.isActive ? "Active" : "Inactive"}
                 </Badge>
               </div>
             </div>
@@ -400,11 +416,12 @@ function RouteComponent() {
 
       {/* Create Dialog */}
       <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="sm:max-w-[700px]">
           <DialogHeader>
-            <DialogTitle>Create New Plantation</DialogTitle>
+            <DialogTitle>Create New System Prompt</DialogTitle>
             <DialogDescription>
-              Add a new plantation to your system. Fill in all required fields.
+              Add a new system prompt to define your AI agent's behavior. This
+              prompt will guide the AI's responses and actions.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleCreateSubmit}>
@@ -419,53 +436,43 @@ function RouteComponent() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  placeholder="Enter plantation name"
+                  placeholder="Enter a descriptive name for this prompt"
                   required
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="create-description">Description</Label>
+                <Label htmlFor="create-prompt">
+                  System Prompt <span className="text-destructive">*</span>
+                </Label>
                 <Textarea
-                  id="create-description"
-                  value={formData.description}
+                  id="create-prompt"
+                  value={formData.prompt}
                   onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
+                    setFormData({ ...formData, prompt: e.target.value })
                   }
-                  placeholder="Enter description (optional)"
-                  rows={3}
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="create-area">
-                  Land Area (hectares){" "}
-                  <span className="text-destructive">*</span>
-                </Label>
-                <Input
-                  id="create-area"
-                  type="number"
-                  step="0.01"
-                  min="0"
-                  value={formData.landAreaHectares}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      landAreaHectares: e.target.value,
-                    })
-                  }
-                  placeholder="0.00"
+                  placeholder="You are a helpful AI assistant that specializes in agricultural technology. Your responses should be clear, accurate, and focused on helping users manage their plantations effectively..."
+                  rows={12}
+                  className="resize-none font-mono text-sm"
                   required
                 />
+                <p className="text-xs text-muted-foreground">
+                  Define the AI's personality, expertise, tone, and any specific
+                  guidelines it should follow.
+                </p>
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="create-date">
-                  Planted Date <span className="text-destructive">*</span>
-                </Label>
-                <DatePicker
-                  date={formData.plantedDate}
-                  onDateChange={(date) =>
-                    setFormData({ ...formData, plantedDate: date })
+              <div className="flex items-center justify-between rounded-lg border p-4">
+                <div className="space-y-0.5">
+                  <Label htmlFor="create-active">Active</Label>
+                  <p className="text-xs text-muted-foreground">
+                    Set this prompt as active for immediate use
+                  </p>
+                </div>
+                <Switch
+                  id="create-active"
+                  checked={formData.isActive}
+                  onCheckedChange={(checked: boolean) =>
+                    setFormData({ ...formData, isActive: checked })
                   }
-                  placeholder="Select planted date"
                 />
               </div>
             </div>
@@ -482,7 +489,7 @@ function RouteComponent() {
                 {createMutation.isPending && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 )}
-                Create Plantation
+                Create Prompt
               </Button>
             </DialogFooter>
           </form>
@@ -491,12 +498,12 @@ function RouteComponent() {
 
       {/* Edit Dialog */}
       <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="sm:max-w-[700px]">
           <DialogHeader>
-            <DialogTitle>Edit Plantation</DialogTitle>
+            <DialogTitle>Edit System Prompt</DialogTitle>
             <DialogDescription>
-              Update the plantation information. Leave fields empty to keep
-              current values.
+              Update the system prompt to modify your AI agent's behavior and
+              response style.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleEditSubmit}>
@@ -509,46 +516,38 @@ function RouteComponent() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  placeholder="Enter plantation name"
+                  placeholder="Enter a descriptive name for this prompt"
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="edit-description">Description</Label>
+                <Label htmlFor="edit-prompt">System Prompt</Label>
                 <Textarea
-                  id="edit-description"
-                  value={formData.description}
+                  id="edit-prompt"
+                  value={formData.prompt}
                   onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
+                    setFormData({ ...formData, prompt: e.target.value })
                   }
-                  placeholder="Enter description"
-                  rows={3}
+                  placeholder="Enter the system prompt..."
+                  rows={12}
+                  className="resize-none font-mono text-sm"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Update the AI's behavior guidelines and personality traits.
+                </p>
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="edit-area">Land Area (hectares)</Label>
-                <Input
-                  id="edit-area"
-                  type="number"
-                  step="0.01"
-                  min="0"
-                  value={formData.landAreaHectares}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      landAreaHectares: e.target.value,
-                    })
+              <div className="flex items-center justify-between rounded-lg border p-4">
+                <div className="space-y-0.5">
+                  <Label htmlFor="edit-active">Active</Label>
+                  <p className="text-xs text-muted-foreground">
+                    Toggle to activate or deactivate this prompt
+                  </p>
+                </div>
+                <Switch
+                  id="edit-active"
+                  checked={formData.isActive}
+                  onCheckedChange={(checked: boolean) =>
+                    setFormData({ ...formData, isActive: checked })
                   }
-                  placeholder="0.00"
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="edit-date">Planted Date</Label>
-                <DatePicker
-                  date={formData.plantedDate}
-                  onDateChange={(date) =>
-                    setFormData({ ...formData, plantedDate: date })
-                  }
-                  placeholder="Select planted date"
                 />
               </div>
             </div>
@@ -565,7 +564,7 @@ function RouteComponent() {
                 {updateMutation.isPending && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 )}
-                Update Plantation
+                Update Prompt
               </Button>
             </DialogFooter>
           </form>
@@ -574,32 +573,54 @@ function RouteComponent() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Delete Plantation</DialogTitle>
+            <DialogTitle>Delete System Prompt</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete this plantation? This action
-              cannot be undone.
+              Are you sure you want to delete this system prompt? This action
+              cannot be undone and may affect your AI agent's behavior.
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
             <div className="rounded-lg bg-muted p-4 space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Name:</span>
-                <span>{selectedPlantation?.name}</span>
+              <div className="space-y-1">
+                <span className="font-medium text-sm">Name:</span>
+                <div className="text-sm font-medium">
+                  {selectedSystemPrompt?.name}
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="font-medium">Land Area:</span>
-                <span>{selectedPlantation?.landAreaHectares} ha</span>
+              <div className="space-y-1">
+                <span className="font-medium text-sm">Prompt Preview:</span>
+                <div className="text-sm text-muted-foreground line-clamp-5">
+                  {selectedSystemPrompt?.prompt}
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="font-medium">Planted:</span>
-                <span>
-                  {selectedPlantation &&
+              <div className="space-y-1">
+                <span className="font-medium text-sm">Status:</span>
+                <div>
+                  <Badge
+                    variant={
+                      selectedSystemPrompt?.isActive ? "default" : "secondary"
+                    }
+                  >
+                    {selectedSystemPrompt?.isActive ? "Active" : "Inactive"}
+                  </Badge>
+                </div>
+              </div>
+              <div className="space-y-1">
+                <span className="font-medium text-sm">Created:</span>
+                <div className="text-sm">
+                  {selectedSystemPrompt &&
                     new Date(
-                      selectedPlantation.plantedDate
+                      selectedSystemPrompt.createdAt
                     ).toLocaleDateString()}
-                </span>
+                </div>
+              </div>
+              <div className="space-y-1">
+                <span className="font-medium text-sm">Characters:</span>
+                <div className="text-sm">
+                  {selectedSystemPrompt?.prompt.length ?? 0}
+                </div>
               </div>
             </div>
           </div>
@@ -621,7 +642,7 @@ function RouteComponent() {
               {deleteMutation.isPending && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Delete Plantation
+              Delete Prompt
             </Button>
           </DialogFooter>
         </DialogContent>

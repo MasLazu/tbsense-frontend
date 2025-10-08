@@ -14,13 +14,13 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboard/plantations/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
 import { Route as DashboardPlantationsPlantationIdRouteImport } from './routes/dashboard/plantations/$plantationId'
+import { Route as DashboardAiManagementSystemPromptRouteImport } from './routes/dashboard/ai-management/system-prompt'
 import { Route as DashboardAiManagementKnowledgeBaseRouteImport } from './routes/dashboard/ai-management/knowledge-base'
 import { Route as DashboardMonitoringStatisticsIndexRouteImport } from './routes/dashboard/monitoring/statistics/index'
 import { Route as DashboardMonitoringHarvestIndexRouteImport } from './routes/dashboard/monitoring/harvest/index'
 import { Route as DashboardMonitoringEnvironmentIndexRouteImport } from './routes/dashboard/monitoring/environment/index'
 import { Route as DashboardMonitoringDistributionIndexRouteImport } from './routes/dashboard/monitoring/distribution/index'
-import { Route as DashboardPlantationsPlantationIdTreesRouteImport } from './routes/dashboard/plantations/$plantationId.trees'
-import { Route as DashboardPlantationsPlantationIdTreesTreeIdRouteImport } from './routes/dashboard/plantations/$plantationId.trees.$treeId'
+import { Route as DashboardPlantationsPlantationIdTreesTreeIdRouteImport } from './routes/dashboard/plantations/$plantationId_.trees/$treeId'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -47,6 +47,12 @@ const DashboardPlantationsPlantationIdRoute =
   DashboardPlantationsPlantationIdRouteImport.update({
     id: '/plantations/$plantationId',
     path: '/plantations/$plantationId',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardAiManagementSystemPromptRoute =
+  DashboardAiManagementSystemPromptRouteImport.update({
+    id: '/ai-management/system-prompt',
+    path: '/ai-management/system-prompt',
     getParentRoute: () => DashboardRoute,
   } as any)
 const DashboardAiManagementKnowledgeBaseRoute =
@@ -79,27 +85,21 @@ const DashboardMonitoringDistributionIndexRoute =
     path: '/monitoring/distribution/',
     getParentRoute: () => DashboardRoute,
   } as any)
-const DashboardPlantationsPlantationIdTreesRoute =
-  DashboardPlantationsPlantationIdTreesRouteImport.update({
-    id: '/trees',
-    path: '/trees',
-    getParentRoute: () => DashboardPlantationsPlantationIdRoute,
-  } as any)
 const DashboardPlantationsPlantationIdTreesTreeIdRoute =
   DashboardPlantationsPlantationIdTreesTreeIdRouteImport.update({
-    id: '/$treeId',
-    path: '/$treeId',
-    getParentRoute: () => DashboardPlantationsPlantationIdTreesRoute,
+    id: '/plantations/$plantationId_/trees/$treeId',
+    path: '/plantations/$plantationId/trees/$treeId',
+    getParentRoute: () => DashboardRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
-  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
+  '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
-  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
@@ -110,10 +110,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
-  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
+  '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
-  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest': typeof DashboardMonitoringHarvestIndexRoute
@@ -125,15 +125,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
-  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRouteWithChildren
+  '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
+  '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations/': typeof DashboardPlantationsIndexRoute
-  '/dashboard/plantations/$plantationId/trees': typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
   '/dashboard/monitoring/distribution/': typeof DashboardMonitoringDistributionIndexRoute
   '/dashboard/monitoring/environment/': typeof DashboardMonitoringEnvironmentIndexRoute
   '/dashboard/monitoring/harvest/': typeof DashboardMonitoringHarvestIndexRoute
   '/dashboard/monitoring/statistics/': typeof DashboardMonitoringStatisticsIndexRoute
-  '/dashboard/plantations/$plantationId/trees/$treeId': typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
+  '/dashboard/plantations/$plantationId_/trees/$treeId': typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,10 +141,10 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
-    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution'
     | '/dashboard/monitoring/environment'
     | '/dashboard/monitoring/harvest'
@@ -155,10 +155,10 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
     | '/dashboard/plantations'
-    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution'
     | '/dashboard/monitoring/environment'
     | '/dashboard/monitoring/harvest'
@@ -169,15 +169,15 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview/'
     | '/dashboard/plantations/'
-    | '/dashboard/plantations/$plantationId/trees'
     | '/dashboard/monitoring/distribution/'
     | '/dashboard/monitoring/environment/'
     | '/dashboard/monitoring/harvest/'
     | '/dashboard/monitoring/statistics/'
-    | '/dashboard/plantations/$plantationId/trees/$treeId'
+    | '/dashboard/plantations/$plantationId_/trees/$treeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPlantationsPlantationIdRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/ai-management/system-prompt': {
+      id: '/dashboard/ai-management/system-prompt'
+      path: '/ai-management/system-prompt'
+      fullPath: '/dashboard/ai-management/system-prompt'
+      preLoaderRoute: typeof DashboardAiManagementSystemPromptRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/ai-management/knowledge-base': {
       id: '/dashboard/ai-management/knowledge-base'
       path: '/ai-management/knowledge-base'
@@ -257,69 +264,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardMonitoringDistributionIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/plantations/$plantationId/trees': {
-      id: '/dashboard/plantations/$plantationId/trees'
-      path: '/trees'
-      fullPath: '/dashboard/plantations/$plantationId/trees'
-      preLoaderRoute: typeof DashboardPlantationsPlantationIdTreesRouteImport
-      parentRoute: typeof DashboardPlantationsPlantationIdRoute
-    }
-    '/dashboard/plantations/$plantationId/trees/$treeId': {
-      id: '/dashboard/plantations/$plantationId/trees/$treeId'
-      path: '/$treeId'
+    '/dashboard/plantations/$plantationId_/trees/$treeId': {
+      id: '/dashboard/plantations/$plantationId_/trees/$treeId'
+      path: '/plantations/$plantationId/trees/$treeId'
       fullPath: '/dashboard/plantations/$plantationId/trees/$treeId'
       preLoaderRoute: typeof DashboardPlantationsPlantationIdTreesTreeIdRouteImport
-      parentRoute: typeof DashboardPlantationsPlantationIdTreesRoute
+      parentRoute: typeof DashboardRoute
     }
   }
 }
-
-interface DashboardPlantationsPlantationIdTreesRouteChildren {
-  DashboardPlantationsPlantationIdTreesTreeIdRoute: typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
-}
-
-const DashboardPlantationsPlantationIdTreesRouteChildren: DashboardPlantationsPlantationIdTreesRouteChildren =
-  {
-    DashboardPlantationsPlantationIdTreesTreeIdRoute:
-      DashboardPlantationsPlantationIdTreesTreeIdRoute,
-  }
-
-const DashboardPlantationsPlantationIdTreesRouteWithChildren =
-  DashboardPlantationsPlantationIdTreesRoute._addFileChildren(
-    DashboardPlantationsPlantationIdTreesRouteChildren,
-  )
-
-interface DashboardPlantationsPlantationIdRouteChildren {
-  DashboardPlantationsPlantationIdTreesRoute: typeof DashboardPlantationsPlantationIdTreesRouteWithChildren
-}
-
-const DashboardPlantationsPlantationIdRouteChildren: DashboardPlantationsPlantationIdRouteChildren =
-  {
-    DashboardPlantationsPlantationIdTreesRoute:
-      DashboardPlantationsPlantationIdTreesRouteWithChildren,
-  }
-
-const DashboardPlantationsPlantationIdRouteWithChildren =
-  DashboardPlantationsPlantationIdRoute._addFileChildren(
-    DashboardPlantationsPlantationIdRouteChildren,
-  )
 
 interface DashboardRouteChildren {
   DashboardAiManagementKnowledgeBaseRoute: typeof DashboardAiManagementKnowledgeBaseRoute
-  DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRouteWithChildren
+  DashboardAiManagementSystemPromptRoute: typeof DashboardAiManagementSystemPromptRoute
+  DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRoute
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
   DashboardPlantationsIndexRoute: typeof DashboardPlantationsIndexRoute
   DashboardMonitoringDistributionIndexRoute: typeof DashboardMonitoringDistributionIndexRoute
   DashboardMonitoringEnvironmentIndexRoute: typeof DashboardMonitoringEnvironmentIndexRoute
   DashboardMonitoringHarvestIndexRoute: typeof DashboardMonitoringHarvestIndexRoute
   DashboardMonitoringStatisticsIndexRoute: typeof DashboardMonitoringStatisticsIndexRoute
+  DashboardPlantationsPlantationIdTreesTreeIdRoute: typeof DashboardPlantationsPlantationIdTreesTreeIdRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAiManagementKnowledgeBaseRoute:
     DashboardAiManagementKnowledgeBaseRoute,
-  DashboardPlantationsPlantationIdRoute:
-    DashboardPlantationsPlantationIdRouteWithChildren,
+  DashboardAiManagementSystemPromptRoute:
+    DashboardAiManagementSystemPromptRoute,
+  DashboardPlantationsPlantationIdRoute: DashboardPlantationsPlantationIdRoute,
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,
   DashboardPlantationsIndexRoute: DashboardPlantationsIndexRoute,
   DashboardMonitoringDistributionIndexRoute:
@@ -329,6 +302,8 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardMonitoringHarvestIndexRoute: DashboardMonitoringHarvestIndexRoute,
   DashboardMonitoringStatisticsIndexRoute:
     DashboardMonitoringStatisticsIndexRoute,
+  DashboardPlantationsPlantationIdTreesTreeIdRoute:
+    DashboardPlantationsPlantationIdTreesTreeIdRoute,
 }
 
 const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
