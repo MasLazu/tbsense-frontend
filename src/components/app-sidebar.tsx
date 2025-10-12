@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 import {
   Bot,
   ChartLine,
@@ -11,109 +11,120 @@ import {
   MonitorCog,
   PieChart,
   Sprout,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { NavMain } from "@/components/nav-main";
+import { NavMain } from '@/components/nav-main';
 // import { NavProjects } from "@/components/nav-projects";
-import { TeamSwitcher } from "@/components/team-switcher";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar";
+import { TeamSwitcher } from '@/components/team-switcher';
+import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
 
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'shadcn',
+    email: 'm@example.com',
+    avatar: '/avatars/shadcn.jpg',
   },
   teams: [
     {
-      name: "TB Sense",
+      name: 'TB Sense',
       logo: Leaf,
-      plan: "Enterprise",
+      plan: 'Enterprise',
     },
   ],
   navMain: [
     {
-      title: "Overview",
-      url: "/dashboard/overview",
+      title: 'Overview',
+      url: '/dashboard/overview',
       icon: ChartPie,
       isActive: true,
     },
     {
-      title: "Ai Assistant",
-      url: "#",
+      title: 'Ai Assistant',
+      url: '#',
       icon: Bot,
       isActive: true,
     },
     {
-      title: "Monitoring",
-      url: "#",
+      title: 'Monitoring',
+      url: '#',
       icon: ChartLine,
       isActive: true,
       items: [
         {
-          title: "Environment",
-          url: "/dashboard/monitoring/environment",
+          title: 'Environment',
+          url: '/dashboard/monitoring/environment',
         },
         {
-          title: "Distribution",
-          url: "/dashboard/monitoring/distribution",
+          title: 'Distribution',
+          url: '/dashboard/monitoring/distribution',
         },
         {
-          title: "Harvest",
-          url: "/dashboard/monitoring/harvest",
+          title: 'Harvest',
+          url: '/dashboard/monitoring/harvest',
         },
         {
-          title: "Statistics",
-          url: "/dashboard/monitoring/statistics",
+          title: 'Statistics',
+          url: '/dashboard/monitoring/statistics',
         },
       ],
     },
     {
-      title: "Plantations",
-      url: "/dashboard/plantations",
+      title: 'Plantations',
+      url: '/dashboard/plantations',
       icon: Sprout,
     },
     {
-      title: "Ai Management",
-      url: "#",
+      title: 'Ai Management',
+      url: '#',
       icon: MonitorCog,
       isActive: true,
       items: [
         {
-          title: "Knowledge Base",
-          url: "/dashboard/ai-management/knowledge-base",
+          title: 'Knowledge Base',
+          url: '/dashboard/ai-management/knowledge-base',
         },
         {
-          title: "System Prompt",
-          url: "/dashboard/ai-management/system-prompt",
+          title: 'System Prompt',
+          url: '/dashboard/ai-management/system-prompt',
         },
         {
-          title: "Prediction",
-          url: "/dashboard/ai-management/prediction",
+          title: 'Prediction',
+          url: '/dashboard/ai-management/prediction',
+        },
+      ],
+    },
+    {
+      title: 'Map',
+      url: '#',
+      icon: Map,
+      isActive: true,
+      items: [
+        {
+          title: 'Area',
+          url: '/dashboard/map/area',
+        },
+        {
+          title: 'Tree',
+          url: '/dashboard/map/tree',
         },
       ],
     },
   ],
   projects: [
     {
-      name: "Design Engineering",
-      url: "#",
+      name: 'Design Engineering',
+      url: '#',
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
+      name: 'Sales & Marketing',
+      url: '#',
       icon: PieChart,
     },
     {
-      name: "Travel",
-      url: "#",
+      name: 'Travel',
+      url: '#',
       icon: Map,
     },
   ],
