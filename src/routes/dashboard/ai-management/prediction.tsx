@@ -52,6 +52,7 @@ function RouteComponent() {
 
   const { data, isLoading, isError } = useModelsPaginated({
     page: pageNumber,
+    orderBy: [{ field: "name", desc: false }],
     pageSize,
   });
 
