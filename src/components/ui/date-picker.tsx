@@ -42,6 +42,7 @@ export function DatePicker({
           mode="single"
           selected={date}
           onSelect={onDateChange}
+          captionLayout="dropdown"
           initialFocus
         />
       </PopoverContent>

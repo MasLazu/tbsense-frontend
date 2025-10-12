@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5065"
+      "url": "http://tbsense-backend.mfaziz.cloud"
     }
   ],
   "paths": {
@@ -29,16 +29,8 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/api/v1/trees": {
@@ -1535,6 +1527,35 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfPaginatedResultOfPlantationDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/plantations/{id}/yield-prediction": {
+      "get": {
+        "tags": ["Api", "V1", "Plantations", "Api"],
+        "operationId": "TbSenseBackendEndpointsEndpointsPlantationsGetPlantationYieldPredictionEndpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfDoubleOf"
                 }
               }
             }
@@ -3095,16 +3116,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": ["Api", "V1", "Models", "Api"],
@@ -3132,16 +3145,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/api/v1/models/{id}": {
@@ -3169,16 +3174,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       },
       "get": {
         "tags": ["Api", "V1", "Models", "Api"],
@@ -3204,16 +3201,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/api/v1/models/paginated": {
@@ -3243,16 +3232,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/api/v1/models/train": {
@@ -3282,16 +3263,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
-        },
-        "security": [
-          {
-            "JWTBearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/api/v1/knowledge-bases": {
@@ -6812,6 +6785,30 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TbSenseBackendAbstractionModelsPlantationDto"
+            }
+          }
+        }
+      },
+      "MasLazuAspNetFrameworkEndpointModelsSuccessResponseOfDoubleOf": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
             }
           }
         }

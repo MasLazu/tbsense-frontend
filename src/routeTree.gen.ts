@@ -15,6 +15,7 @@ import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboar
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
 import { Route as DashboardPlantationsPlantationIdRouteImport } from './routes/dashboard/plantations/$plantationId'
 import { Route as DashboardAiManagementSystemPromptRouteImport } from './routes/dashboard/ai-management/system-prompt'
+import { Route as DashboardAiManagementPredictionRouteImport } from './routes/dashboard/ai-management/prediction'
 import { Route as DashboardAiManagementKnowledgeBaseRouteImport } from './routes/dashboard/ai-management/knowledge-base'
 import { Route as DashboardMonitoringStatisticsIndexRouteImport } from './routes/dashboard/monitoring/statistics/index'
 import { Route as DashboardMonitoringHarvestIndexRouteImport } from './routes/dashboard/monitoring/harvest/index'
@@ -53,6 +54,12 @@ const DashboardAiManagementSystemPromptRoute =
   DashboardAiManagementSystemPromptRouteImport.update({
     id: '/ai-management/system-prompt',
     path: '/ai-management/system-prompt',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardAiManagementPredictionRoute =
+  DashboardAiManagementPredictionRouteImport.update({
+    id: '/ai-management/prediction',
+    path: '/ai-management/prediction',
     getParentRoute: () => DashboardRoute,
   } as any)
 const DashboardAiManagementKnowledgeBaseRoute =
@@ -96,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
+  '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
@@ -110,6 +118,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
+  '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
@@ -125,6 +134,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/ai-management/knowledge-base': typeof DashboardAiManagementKnowledgeBaseRoute
+  '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview'
@@ -169,6 +181,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/ai-management/knowledge-base'
+    | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
     | '/dashboard/overview/'
@@ -229,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardAiManagementSystemPromptRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/ai-management/prediction': {
+      id: '/dashboard/ai-management/prediction'
+      path: '/ai-management/prediction'
+      fullPath: '/dashboard/ai-management/prediction'
+      preLoaderRoute: typeof DashboardAiManagementPredictionRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/ai-management/knowledge-base': {
       id: '/dashboard/ai-management/knowledge-base'
       path: '/ai-management/knowledge-base'
@@ -276,6 +296,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardAiManagementKnowledgeBaseRoute: typeof DashboardAiManagementKnowledgeBaseRoute
+  DashboardAiManagementPredictionRoute: typeof DashboardAiManagementPredictionRoute
   DashboardAiManagementSystemPromptRoute: typeof DashboardAiManagementSystemPromptRoute
   DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRoute
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
@@ -290,6 +311,7 @@ interface DashboardRouteChildren {
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAiManagementKnowledgeBaseRoute:
     DashboardAiManagementKnowledgeBaseRoute,
+  DashboardAiManagementPredictionRoute: DashboardAiManagementPredictionRoute,
   DashboardAiManagementSystemPromptRoute:
     DashboardAiManagementSystemPromptRoute,
   DashboardPlantationsPlantationIdRoute: DashboardPlantationsPlantationIdRoute,
