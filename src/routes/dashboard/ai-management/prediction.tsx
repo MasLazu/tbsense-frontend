@@ -1,25 +1,32 @@
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   useModelsPaginated,
   useDownloadModel,
   useCreateModel,
-  useUpdateModel,
+  useActivateModel,
 } from "@/hooks/use-models";
 import { ModelCard } from "@/components/ModelCard";
 import { CreateModelDialog } from "@/components/CreateModelDialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   ChevronLeft,
   ChevronRight,
   Search,
   Brain,
   Loader2,
+  RefreshCw,
 } from "lucide-react";
-import type {
-  CreateModelRequest,
-  UpdateModelRequest,
-} from "@/services/models-service";
+import type { CreateModelRequest } from "@/services/models-service";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/dashboard/ai-management/prediction")({
@@ -33,7 +40,15 @@ function RouteComponent() {
   const [downloadingModelId, setDownloadingModelId] = useState<string | null>(
     null
   );
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [confirmActivateModel, setConfirmActivateModel] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
+  const [isActivating, setIsActivating] = useState(false);
   const pageSize = 12;
+
+  const queryClient = useQueryClient();
 
   const { data, isLoading, isError } = useModelsPaginated({
     page: pageNumber,
@@ -42,7 +57,20 @@ function RouteComponent() {
 
   const downloadModelMutation = useDownloadModel();
   const createModelMutation = useCreateModel();
-  const updateModelMutation = useUpdateModel();
+  const activateModelMutation = useActivateModel();
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      await queryClient.invalidateQueries({
+        queryKey: ["models"],
+      });
+    } catch (error) {
+      console.error("Failed to refresh models:", error);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const handleDownload = async (id: string) => {
     setDownloadingModelId(id);
@@ -89,13 +117,16 @@ function RouteComponent() {
     setPageNumber(1);
   };
 
-  const handleSetAsUsed = async (id: string) => {
+  const handleSetAsUsed = (id: string, name: string) => {
+    setConfirmActivateModel({ id, name });
+  };
+
+  const handleConfirmActivate = async () => {
+    if (!confirmActivateModel) return;
+
+    setIsActivating(true);
     try {
-      const updateRequest: UpdateModelRequest = {
-        id,
-        isUsed: true,
-      };
-      await updateModelMutation.mutateAsync(updateRequest);
+      await activateModelMutation.mutateAsync(confirmActivateModel.id);
       console.log(
         "Model Activated",
         "This model is now set as the active model."
@@ -107,6 +138,9 @@ function RouteComponent() {
           ? error.message
           : "Failed to set model as active."
       );
+    } finally {
+      setIsActivating(false);
+      setConfirmActivateModel(null);
     }
   };
 
@@ -160,6 +194,17 @@ function RouteComponent() {
                 {data.totalCount} models
               </div>
             )}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleRefresh}
+              disabled={isRefreshing}
+              title="Refresh models"
+            >
+              <RefreshCw
+                className={`w-4 h-4 ${isRefreshing ? "animate-spin" : ""}`}
+              />
+            </Button>
             <CreateModelDialog
               onCreateModel={handleCreateModel}
               isCreating={isCreating}
@@ -253,6 +298,38 @@ function RouteComponent() {
             <p className="text-muted-foreground">No models found.</p>
           </div>
         )}
+
+        {/* Confirmation Dialog for Activating Model */}
+        <Dialog
+          open={!!confirmActivateModel}
+          onOpenChange={(open) => !open && setConfirmActivateModel(null)}
+        >
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Activate Model</DialogTitle>
+              <DialogDescription>
+                Are you sure you want to activate the model{" "}
+                <strong>{confirmActivateModel?.name}</strong>? This will set it
+                as the active model for predictions.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button
+                variant="outline"
+                onClick={() => setConfirmActivateModel(null)}
+                disabled={isActivating}
+              >
+                Cancel
+              </Button>
+              <Button onClick={handleConfirmActivate} disabled={isActivating}>
+                {isActivating && (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                )}
+                {isActivating ? "Activating..." : "Activate Model"}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );

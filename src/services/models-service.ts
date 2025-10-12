@@ -218,4 +218,17 @@ export class ModelsService {
 
     return await response.blob();
   }
+
+  static async activateModel(
+    id: string,
+    accessToken?: string
+  ): Promise<ModelDto> {
+    return (
+      await apiClient.get<ModelDto>(
+        `/models/${id}/use`,
+        undefined,
+        accessToken ?? undefined
+      )
+    ).data;
+  }
 }

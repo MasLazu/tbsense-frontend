@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
 interface ModelCardProps {
   model: ModelDto;
   onDownload: (id: string) => void;
-  onSetAsUsed: (id: string) => void;
+  onSetAsUsed: (id: string, name: string) => void;
   isDownloading?: boolean;
 }
 
@@ -124,7 +124,7 @@ export const ModelCard = ({
           <Button
             variant="default"
             className="flex-1"
-            onClick={() => onSetAsUsed(model.id)}
+            onClick={() => onSetAsUsed(model.id, model.name || "Unnamed Model")}
           >
             <CheckCircle2 className="w-4 h-4 mr-2" />
             Set as Active

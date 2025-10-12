@@ -156,3 +156,19 @@ export function useDownloadModel() {
     mutationFn: (id: string) => ModelsService.downloadModel(id, accessToken),
   });
 }
+
+// Hook to activate model
+export function useActivateModel() {
+  const { accessToken } = useAuth();
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (id: string) => ModelsService.activateModel(id, accessToken),
+    onSuccess: () => {
+      // Invalidate all model-related queries to ensure the list updates
+      queryClient.invalidateQueries({
+        queryKey: modelsQueryKeys.all(),
+      });
+    },
+  });
+}
