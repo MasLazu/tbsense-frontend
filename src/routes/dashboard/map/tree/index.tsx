@@ -230,8 +230,8 @@ function RouteComponent() {
                       key={tree.id}
                       position={{ lat: tree.latitude, lng: tree.longitude }}
                     >
-                      <Pin background="#dc2626" borderColor="#991b1b" glyphColor="#ffffff">
-                        <div className="text-xs font-bold">🌴</div>
+                      <Pin background="#8de0a4" borderColor="#27422f" glyphColor="#ffffff">
+                        <div className="text-3xl font-bold">🌴</div>
                       </Pin>
                     </AdvancedMarker>
                   ))}
@@ -286,7 +286,7 @@ function RouteComponent() {
                         <td className="p-2 font-medium">{index + 1}</td>
                         <td className="p-2 text-xs">{tree.latitude.toFixed(6)}</td>
                         <td className="p-2 text-xs">{tree.longitude.toFixed(6)}</td>
-                        <td className="p-2 flex gap-1">
+                        <td className="p-2 flex gap-1 items-center">
                           <DialogQrCode treeId={tree.id} />
                           <Button
                             variant="ghost"

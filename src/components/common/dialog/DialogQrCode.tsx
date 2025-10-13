@@ -39,16 +39,16 @@ export const DialogQrCode = ({ treeId }: { treeId: string }) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Tooltip>
-          <TooltipTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <DialogTrigger asChild>
             <ScanQrCode className="w-4 h-4 text-cyan-500 cursor-pointer" />
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>QR Code</p>
-          </TooltipContent>
-        </Tooltip>
-      </DialogTrigger>
+          </DialogTrigger>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>QR Code</p>
+        </TooltipContent>
+      </Tooltip>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>QR Code dari Pohon</DialogTitle>
