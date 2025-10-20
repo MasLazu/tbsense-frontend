@@ -13,6 +13,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardPlantationsIndexRouteImport } from './routes/dashboard/plantations/index'
 import { Route as DashboardOverviewIndexRouteImport } from './routes/dashboard/overview/index'
+import { Route as DashboardAiAssistantIndexRouteImport } from './routes/dashboard/ai-assistant/index'
 import { Route as DashboardPlantationsPlantationIdRouteImport } from './routes/dashboard/plantations/$plantationId'
 import { Route as DashboardAiManagementSystemPromptRouteImport } from './routes/dashboard/ai-management/system-prompt'
 import { Route as DashboardAiManagementPredictionRouteImport } from './routes/dashboard/ai-management/prediction'
@@ -46,6 +47,12 @@ const DashboardOverviewIndexRoute = DashboardOverviewIndexRouteImport.update({
   path: '/overview/',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardAiAssistantIndexRoute =
+  DashboardAiAssistantIndexRouteImport.update({
+    id: '/ai-assistant/',
+    path: '/ai-assistant/',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 const DashboardPlantationsPlantationIdRoute =
   DashboardPlantationsPlantationIdRouteImport.update({
     id: '/plantations/$plantationId',
@@ -118,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
+  '/dashboard/ai-assistant': typeof DashboardAiAssistantIndexRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
   '/dashboard/map/area': typeof DashboardMapAreaIndexRoute
@@ -135,6 +143,7 @@ export interface FileRoutesByTo {
   '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
+  '/dashboard/ai-assistant': typeof DashboardAiAssistantIndexRoute
   '/dashboard/overview': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations': typeof DashboardPlantationsIndexRoute
   '/dashboard/map/area': typeof DashboardMapAreaIndexRoute
@@ -153,6 +162,7 @@ export interface FileRoutesById {
   '/dashboard/ai-management/prediction': typeof DashboardAiManagementPredictionRoute
   '/dashboard/ai-management/system-prompt': typeof DashboardAiManagementSystemPromptRoute
   '/dashboard/plantations/$plantationId': typeof DashboardPlantationsPlantationIdRoute
+  '/dashboard/ai-assistant/': typeof DashboardAiAssistantIndexRoute
   '/dashboard/overview/': typeof DashboardOverviewIndexRoute
   '/dashboard/plantations/': typeof DashboardPlantationsIndexRoute
   '/dashboard/map/area/': typeof DashboardMapAreaIndexRoute
@@ -172,6 +182,7 @@ export interface FileRouteTypes {
     | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
+    | '/dashboard/ai-assistant'
     | '/dashboard/overview'
     | '/dashboard/plantations'
     | '/dashboard/map/area'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
+    | '/dashboard/ai-assistant'
     | '/dashboard/overview'
     | '/dashboard/plantations'
     | '/dashboard/map/area'
@@ -206,6 +218,7 @@ export interface FileRouteTypes {
     | '/dashboard/ai-management/prediction'
     | '/dashboard/ai-management/system-prompt'
     | '/dashboard/plantations/$plantationId'
+    | '/dashboard/ai-assistant/'
     | '/dashboard/overview/'
     | '/dashboard/plantations/'
     | '/dashboard/map/area/'
@@ -250,6 +263,13 @@ declare module '@tanstack/react-router' {
       path: '/overview'
       fullPath: '/dashboard/overview'
       preLoaderRoute: typeof DashboardOverviewIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/ai-assistant/': {
+      id: '/dashboard/ai-assistant/'
+      path: '/ai-assistant'
+      fullPath: '/dashboard/ai-assistant'
+      preLoaderRoute: typeof DashboardAiAssistantIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
     '/dashboard/plantations/$plantationId': {
@@ -337,6 +357,7 @@ interface DashboardRouteChildren {
   DashboardAiManagementPredictionRoute: typeof DashboardAiManagementPredictionRoute
   DashboardAiManagementSystemPromptRoute: typeof DashboardAiManagementSystemPromptRoute
   DashboardPlantationsPlantationIdRoute: typeof DashboardPlantationsPlantationIdRoute
+  DashboardAiAssistantIndexRoute: typeof DashboardAiAssistantIndexRoute
   DashboardOverviewIndexRoute: typeof DashboardOverviewIndexRoute
   DashboardPlantationsIndexRoute: typeof DashboardPlantationsIndexRoute
   DashboardMapAreaIndexRoute: typeof DashboardMapAreaIndexRoute
@@ -355,6 +376,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAiManagementSystemPromptRoute:
     DashboardAiManagementSystemPromptRoute,
   DashboardPlantationsPlantationIdRoute: DashboardPlantationsPlantationIdRoute,
+  DashboardAiAssistantIndexRoute: DashboardAiAssistantIndexRoute,
   DashboardOverviewIndexRoute: DashboardOverviewIndexRoute,
   DashboardPlantationsIndexRoute: DashboardPlantationsIndexRoute,
   DashboardMapAreaIndexRoute: DashboardMapAreaIndexRoute,
