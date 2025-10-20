@@ -33,7 +33,7 @@ import type {
   AiChatFunctionResultContent,
 } from "@/types/ai-chat-content";
 
-const models = [{ id: "qwen3", name: "Qwen 3" }];
+const models = [{ id: "z-ai/glm-4.5-air:free", name: "GLM 4.5 Air" }];
 
 interface AiChatSessionProps {
   user?: {
