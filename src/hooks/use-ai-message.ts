@@ -116,7 +116,7 @@ export function useAiMessage() {
         {
           sessionId: session.id!,
           chatMessage: chatMessage,
-          model: modelId ?? "gemini-2.5-flash",
+          model: modelId ?? "z-ai/glm-4.5-air:free",
         },
         accessToken
       );
@@ -196,7 +196,7 @@ export function useAiMessage() {
         {
           sessionId: sessionId,
           message: message,
-          model: modelId ?? "gemini-2.5-flash",
+          model: modelId ?? "z-ai/glm-4.5-air:free",
         },
         accessToken
       );
