@@ -1,4 +1,4 @@
-import { apiClient } from "../lib/api-client";
+import { apiClient } from '../lib/api-client';
 
 // Base DTO interface
 export interface BaseDto {
@@ -67,45 +67,35 @@ export class PlantationsService {
     request: CreatePlantationRequest,
     accessToken?: string
   ): Promise<PlantationDto> {
-    return (
-      await apiClient.post<PlantationDto>(
-        "/plantations",
-        request,
-        accessToken ?? undefined
-      )
-    ).data;
+    return (await apiClient.post<PlantationDto>('/plantations', request, accessToken ?? undefined))
+      .data;
   }
 
   static async updatePlantation(
     request: UpdatePlantationRequest,
     accessToken?: string
   ): Promise<PlantationDto> {
+    return (await apiClient.put<PlantationDto>('/plantations', request, accessToken ?? undefined))
+      .data;
+  }
+
+  static async deletePlantation(id: string, accessToken?: string): Promise<void> {
+    await apiClient.delete<object>(`/plantations/${id}`, accessToken ?? undefined);
+  }
+
+  static async getPlantationById(id: string, accessToken?: string): Promise<PlantationDto> {
     return (
-      await apiClient.put<PlantationDto>(
-        "/plantations",
-        request,
-        accessToken ?? undefined
-      )
+      await apiClient.get<PlantationDto>(`/plantations/${id}`, undefined, accessToken ?? undefined)
     ).data;
   }
 
-  static async deletePlantation(
+  static async getPlantationYieldPredictionById(
     id: string,
     accessToken?: string
-  ): Promise<void> {
-    await apiClient.delete<object>(
-      `/plantations/${id}`,
-      accessToken ?? undefined
-    );
-  }
-
-  static async getPlantationById(
-    id: string,
-    accessToken?: string
-  ): Promise<PlantationDto> {
+  ): Promise<number[]> {
     return (
-      await apiClient.get<PlantationDto>(
-        `/plantations/${id}`,
+      await apiClient.get<number[]>(
+        `/plantations/${id}/yield-prediction`,
         undefined,
         accessToken ?? undefined
       )
@@ -118,7 +108,7 @@ export class PlantationsService {
   ): Promise<PaginatedResult<PlantationDto>> {
     return (
       await apiClient.post<PaginatedResult<PlantationDto>>(
-        "/plantations/paginated",
+        '/plantations/paginated',
         request,
         accessToken ?? undefined
       )

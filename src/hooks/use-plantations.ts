@@ -1,21 +1,20 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "./use-auth";
-import { PlantationsService } from "../services/plantations-service";
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useAuth } from './use-auth';
+import { PlantationsService } from '../services/plantations-service';
 import type {
   PlantationDto,
   CreatePlantationRequest,
   UpdatePlantationRequest,
   PaginationRequest,
   PaginatedResult,
-} from "../services/plantations-service";
+} from '../services/plantations-service';
 
 // Query Keys Factory
 export const plantationsQueryKeys = {
-  all: () => ["plantations"] as const,
-  lists: () => [...plantationsQueryKeys.all(), "list"] as const,
-  list: (pagination: PaginationRequest) =>
-    [...plantationsQueryKeys.lists(), pagination] as const,
-  details: () => [...plantationsQueryKeys.all(), "detail"] as const,
+  all: () => ['plantations'] as const,
+  lists: () => [...plantationsQueryKeys.all(), 'list'] as const,
+  list: (pagination: PaginationRequest) => [...plantationsQueryKeys.lists(), pagination] as const,
+  details: () => [...plantationsQueryKeys.all(), 'detail'] as const,
   detail: (id: string) => [...plantationsQueryKeys.details(), id] as const,
 };
 
@@ -38,8 +37,7 @@ export function usePlantationsPaginated(pagination: PaginationRequest) {
 
   return useQuery<PaginatedResult<PlantationDto>>({
     queryKey: plantationsQueryKeys.list(pagination),
-    queryFn: () =>
-      PlantationsService.getPlantationsPaginated(pagination, accessToken),
+    queryFn: () => PlantationsService.getPlantationsPaginated(pagination, accessToken),
     enabled: !isInitialLoading,
     staleTime: 60 * 1000, // 1 minute
     refetchOnWindowFocus: false,
@@ -90,8 +88,7 @@ export function useDeletePlantation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (id: string) =>
-      PlantationsService.deletePlantation(id, accessToken),
+    mutationFn: (id: string) => PlantationsService.deletePlantation(id, accessToken),
     onSuccess: (_, deletedId) => {
       // Remove the specific plantation from cache
       queryClient.removeQueries({
@@ -102,5 +99,17 @@ export function useDeletePlantation() {
         queryKey: plantationsQueryKeys.lists(),
       });
     },
+  });
+}
+
+export function useGetPlantationYieldPrediction(id: string) {
+  const { accessToken, isInitialLoading } = useAuth();
+  return useQuery<number[]>({
+    queryKey: [...plantationsQueryKeys.detail(id), 'yield-prediction'],
+    queryFn: () => PlantationsService.getPlantationYieldPredictionById(id, accessToken),
+    enabled: !isInitialLoading && !!id,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    refetchOnWindowFocus: false,
+    retry: false,
   });
 }
